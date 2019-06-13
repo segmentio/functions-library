@@ -8,4 +8,4 @@ this repo as the set of examples
 
 ## Functions
 
-- Follow Along (generates Fullstory links in Slack)
+- [Follow Along](./follow-along) (generates Fullstory links in Slack)
