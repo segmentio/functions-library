@@ -1,0 +1,70 @@
+{
+    "id": "WH-58D329510W468432D-8HN650336L201105X",
+    "event_version": "1.0",
+    "create_time": "2019-02-14T21:50:07.940Z",
+    "resource_type": "capture",
+    "resource_version": "2.0",
+    "event_type": "PAYMENT.CAPTURE.COMPLETED",
+    "summary": "Payment completed for $ 2.51 USD",
+    "resource": {
+        "id": "27M47624FP291604U",
+        "amount": {
+            "currency_code": "USD",
+            "value": "2.51"
+        },
+        "final_capture": true,
+        "seller_protection": {
+            "status": "ELIGIBLE",
+            "dispute_categories": [
+                "ITEM_NOT_RECEIVED",
+                "UNAUTHORIZED_TRANSACTION"
+            ]
+        },
+        "seller_receivable_breakdown": {
+            "gross_amount": {
+                "currency_code": "USD",
+                "value": "2.51"
+            },
+            "paypal_fee": {
+                "currency_code": "USD",
+                "value": "0.37"
+            },
+            "net_amount": {
+                "currency_code": "USD",
+                "value": "2.14"
+            }
+        },
+        "status": "COMPLETED",
+        "create_time": "2019-02-14T21:49:58Z",
+        "update_time": "2019-02-14T21:49:58Z",
+        "links": [
+            {
+                "href": "https://api.paypal.com/v2/payments/captures/27M47624FP291604U",
+                "rel": "self",
+                "method": "GET"
+            },
+            {
+                "href": "https://api.paypal.com/v2/payments/captures/27M47624FP291604U/refund",
+                "rel": "refund",
+                "method": "POST"
+            },
+            {
+                "href": "https://api.paypal.com/v2/payments/authorizations/7W5147081L658180V",
+                "rel": "up",
+                "method": "GET"
+            }
+        ]
+    },
+    "links": [
+        {
+            "href": "https://api.paypal.com/v1/notifications/webhooks-events/WH-58D329510W468432D-8HN650336L201105X",
+            "rel": "self",
+            "method": "GET"
+        },
+        {
+            "href": "https://api.paypal.com/v1/notifications/webhooks-events/WH-58D329510W468432D-8HN650336L201105X/resend",
+            "rel": "resend",
+            "method": "POST"
+        }
+    ]
+}
