@@ -8,4 +8,5 @@ this repo as the set of examples.
 
 ## Functions
 
-- [Follow Along](./functions/follow-along) (generates Fullstory links in Slack)
+- [Follow Along](./destinations/follow-along) (generates Fullstory links in Slack)
+- [Paypal](./sources/paypal) (subscribes to Paypal webhooks)

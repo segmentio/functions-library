@@ -9,7 +9,7 @@ exports.processEvents = async (event) => {
     objects: [],
     events: []
   }
-
+  
   if (eventBody.resource_type == 'order') {
     	const orderObj = {
           collection: eventBody.resource_type,
@@ -52,7 +52,6 @@ exports.processEvents = async (event) => {
   }
 
   if (eventBody.resource_type == 'checkout-order') {
-
      const props = {
             createTime: eventBody.resource.create_time,
             updateTime: eventBody.resource.update_time,
