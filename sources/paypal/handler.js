@@ -1,3 +1,6 @@
+// Supported Objects: order, plan, checkout-order
+// Supported Events: Order Completed
+
 exports.processEvents = async (event) => {
   let eventBody = event.payload.body;
   let eventHeaders = event.payload.headers;
