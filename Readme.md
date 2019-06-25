@@ -10,3 +10,4 @@ this repo as the set of examples.
 
 - [Follow Along](./destinations/follow-along) (generates Fullstory links in Slack)
 - [Paypal](./sources/paypal) (subscribes to Paypal webhooks)
+- [Leanplum](./sources/leanplum) (subscribes to Leanplum webhooks)
