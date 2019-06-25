@@ -1,66 +1,72 @@
 {
-    "id": "WH-4SW78779LY2325805-07E03580SX1414828",
-    "event_version": "1.0",
-    "create_time": "2019-02-14T22:20:08.370Z",
-    "resource_type": "capture",
-    "resource_version": "2.0",
-    "event_type": "PAYMENT.CAPTURE.DENIED",
-    "summary": "A AUD 2.51 AUD capture payment was denied",
-    "resource": {
-        "id": "7NW873794T343360M",
-        "amount": {
-            "currency_code": "AUD",
-            "value": "2.51"
-        },
-        "final_capture": true,
-        "seller_protection": {
-            "status": "ELIGIBLE",
-            "dispute_categories": [
-                "ITEM_NOT_RECEIVED",
-                "UNAUTHORIZED_TRANSACTION"
-            ]
-        },
-        "seller_receivable_breakdown": {
-            "gross_amount": {
-                "currency_code": "AUD",
-                "value": "2.51"
-            },
-            "net_amount": {
-                "currency_code": "AUD",
-                "value": "2.51"
-            }
-        },
-        "status": "DECLINED",
-        "create_time": "2019-02-14T22:18:14Z",
-        "update_time": "2019-02-14T22:20:01Z",
-        "links": [
-            {
-                "href": "https://api.paypal.com/v2/payments/captures/7NW873794T343360M",
-                "rel": "self",
-                "method": "GET"
-            },
-            {
-                "href": "https://api.paypal.com/v2/payments/captures/7NW873794T343360M/refund",
-                "rel": "refund",
-                "method": "POST"
-            },
-            {
-                "href": "https://api.paypal.com/v2/payments/authorizations/2W543679LP5841156",
-                "rel": "up",
-                "method": "GET"
-            }
-        ]
-    },
-    "links": [
-        {
-            "href": "https://api.paypal.com/v1/notifications/webhooks-events/WH-4SW78779LY2325805-07E03580SX1414828",
-            "rel": "self",
-            "method": "GET"
-        },
-        {
-            "href": "https://api.paypal.com/v1/notifications/webhooks-events/WH-4SW78779LY2325805-07E03580SX1414828/resend",
-            "rel": "resend",
-            "method": "POST"
-        }
-    ]
+  "payload": {
+      "body": {
+      "id": "WH-4SW78779LY2325805-07E03580SX1414828",
+      "event_version": "1.0",
+      "create_time": "2019-02-14T22:20:08.370Z",
+      "resource_type": "capture",
+      "resource_version": "2.0",
+      "event_type": "PAYMENT.CAPTURE.DENIED",
+      "summary": "A AUD 2.51 AUD capture payment was denied",
+      "resource": {
+          "id": "7NW873794T343360M",
+          "amount": {
+              "currency_code": "AUD",
+              "value": "2.51"
+          },
+          "final_capture": true,
+          "seller_protection": {
+              "status": "ELIGIBLE",
+              "dispute_categories": [
+                  "ITEM_NOT_RECEIVED",
+                  "UNAUTHORIZED_TRANSACTION"
+              ]
+          },
+          "seller_receivable_breakdown": {
+              "gross_amount": {
+                  "currency_code": "AUD",
+                  "value": "2.51"
+              },
+              "net_amount": {
+                  "currency_code": "AUD",
+                  "value": "2.51"
+              }
+          },
+          "status": "DECLINED",
+          "create_time": "2019-02-14T22:18:14Z",
+          "update_time": "2019-02-14T22:20:01Z",
+          "links": [
+              {
+                  "href": "https://api.paypal.com/v2/payments/captures/7NW873794T343360M",
+                  "rel": "self",
+                  "method": "GET"
+              },
+              {
+                  "href": "https://api.paypal.com/v2/payments/captures/7NW873794T343360M/refund",
+                  "rel": "refund",
+                  "method": "POST"
+              },
+              {
+                  "href": "https://api.paypal.com/v2/payments/authorizations/2W543679LP5841156",
+                  "rel": "up",
+                  "method": "GET"
+              }
+          ]
+      },
+      "links": [
+          {
+              "href": "https://api.paypal.com/v1/notifications/webhooks-events/WH-4SW78779LY2325805-07E03580SX1414828",
+              "rel": "self",
+              "method": "GET"
+          },
+          {
+              "href": "https://api.paypal.com/v1/notifications/webhooks-events/WH-4SW78779LY2325805-07E03580SX1414828/resend",
+              "rel": "resend",
+              "method": "POST"
+          }
+      ]
+  },
+  "headers": {},
+  "queryParams": {}
+  }
 }
