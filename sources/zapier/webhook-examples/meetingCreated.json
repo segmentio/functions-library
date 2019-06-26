@@ -1,0 +1,15 @@
+{
+	"payload": {
+		"headers": {
+			"content-type": "application/json"
+		},
+		"queryParams": {},
+		"body": {
+			"duration": "15",
+			"eventType": "15 Minute Meeting",
+			"eventDatetime": "2019-06-24T16:00:00-07:00",
+			"userId": "red@oak.net",
+			"name": "Red"
+		}
+	}
+}

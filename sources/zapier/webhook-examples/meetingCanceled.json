@@ -1,0 +1,20 @@
+{
+	"payload": {
+		"headers": {
+			"content-type": "application/json"
+		},
+		"queryParams": {},
+		"body": {
+			"eventCancelReason": "fresh donut sign on",
+			"name": "Blue",
+			"eventCanceled": "True",
+			"eventType": "15 Minute Meeting",
+			"eventTypeKind": "One-on-One",
+			"userId": "blue@oak.net",
+			"inviteeIsReschedule": "False",
+			"inviteeCanceledAt": "2019-06-26T11:25:18-07:00",
+			"duration": "15",
+			"inviteeCancelerName": "Blue"
+		}
+	}
+}
