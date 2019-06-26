@@ -12,6 +12,7 @@ this repo as the set of examples.
 - [Leanplum](./sources/leanplum) - Subscribes to Leanplum webhooks
 - [SurveyMonkey](./sources/surveymonkey) - Subscribes to SurveyMonkey webhooks
 - [Stripe Events](./sources/stripe-events) - Subscribes to Stripe webhooks
+- [Pipedrive](./sources/pipedrive) - Subscribes to Pipedrive webhooks
 
 ## Destinations
 
