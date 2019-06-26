@@ -11,6 +11,7 @@ this repo as the set of examples.
 - [Paypal](./sources/paypal) - Subscribes to Paypal webhooks
 - [Leanplum](./sources/leanplum) - Subscribes to Leanplum webhooks
 - [SurveyMonkey](./sources/surveymonkey) - Subscribes to SurveyMonkey webhooks
+- [Stripe Events](./sources/stripe-events) - Subscribes to Stripe webhooks
 
 ## Destinations
 
