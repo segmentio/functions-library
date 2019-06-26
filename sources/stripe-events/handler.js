@@ -1,34 +1,34 @@
-exports.processEvents = async (event) => {
+exports.processEvents = async event => {
   let eventBody = event.payload.body;
   let eventHeaders = event.payload.headers;
   let queryParameters = event.payload.queryParameters;
   let returnValue = {
     objects: [],
     events: []
+  };
+
+  if (eventBody.type == "charge.succeeded") {
+    const chargeSucceeded = {
+      type: "track",
+      event: "Charge Succeeded",
+      userId: eventBody.data.object.customer,
+      properties: {
+        createTime: eventBody.data.object.created,
+        amount: eventBody.data.object.amount,
+        paid: eventBody.data.object.paid,
+        status: eventBody.data.object.status
+      },
+      context: {
+        source: "Stripe"
+      }
+    };
+    returnValue.events.push(chargeSucceeded);
   }
 
-  if (eventBody.type == 'charge.succeeded') {
-     const chargeSucceeded = {
-        type: 'track',
-        event: 'Charge Succeeded',
-        userId: eventBody.data.object.customer,
-        properties: {
-        	createTime: eventBody.data.object.created,
-          	amount: eventBody.data.object.amount,
-          	paid: eventBody.data.object.paid,
-          	status: eventBody.data.object.status
-        },
-       context: {
-       		source: "Stripe"
-       }
-    }
-  	returnValue.events.push(chargeSucceeded)
-  }
-
-  if (eventBody.type == 'customer.created') {
+  if (eventBody.type == "customer.created") {
     const customerCreated = {
-      type: 'track',
-      event: 'Customer Created',
+      type: "track",
+      event: "Customer Created",
       userId: eventBody.data.object.id,
       properties: {
         createTime: eventBody.data.object.created,
@@ -36,12 +36,12 @@ exports.processEvents = async (event) => {
         currency: eventBody.data.object.currency
       },
       context: {
-      	source: "stripe"
+        source: "stripe"
       }
-    }
+    };
 
-	const identify = {
-      type: 'identify',
+    const identify = {
+      type: "identify",
       userId: eventBody.data.object.id,
       properties: {
         createTime: eventBody.data.object.created,
@@ -49,16 +49,16 @@ exports.processEvents = async (event) => {
         currency: eventBody.data.object.currency
       },
       context: {
-      	source: "Stripe"
+        source: "Stripe"
       }
-    }
-    returnValue.events.push(customerCreated, identify)
+    };
+    returnValue.events.push(customerCreated, identify);
   }
 
-  if (eventBody.type == 'customer.subscription.created') {
+  if (eventBody.type == "customer.subscription.created") {
     const subscriptionCreated = {
-      type: 'track',
-      event: 'Subscription Created',
+      type: "track",
+      event: "Subscription Created",
       userId: eventBody.data.object.customer,
       properties: {
         createTime: eventBody.data.object.created,
@@ -69,16 +69,16 @@ exports.processEvents = async (event) => {
         trial_end: eventBody.data.object.trial_end
       },
       context: {
-      	source: "stripe"
+        source: "stripe"
       }
-    }
-    returnValue.events.push(subscriptionCreated)
+    };
+    returnValue.events.push(subscriptionCreated);
   }
 
-  if (eventBody.type == 'customer.subscription.trial_will_end') {
+  if (eventBody.type == "customer.subscription.trial_will_end") {
     const subscriptionCreated = {
-      type: 'track',
-      event: 'Trial Ending Soon',
+      type: "track",
+      event: "Trial Ending Soon",
       userId: eventBody.data.object.customer,
       properties: {
         plan_id: eventBody.data.object.plan.id,
@@ -88,11 +88,11 @@ exports.processEvents = async (event) => {
         trial_end: eventBody.data.object.trial_end
       },
       context: {
-      	source: "stripe"
+        source: "stripe"
       }
-    }
-    returnValue.events.push(subscriptionCreated)
+    };
+    returnValue.events.push(subscriptionCreated);
   }
 
-  return(returnValue)
-}
+  return returnValue;
+};
