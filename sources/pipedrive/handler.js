@@ -143,7 +143,7 @@ function createPersonObject(eventData) {
       ownerId: currentData.owner_id,
       ownerName: currentData.owner_name,
       updatedTime: currentData.updated_time,
-      wonDealsCount: currentData.wonDealsCount
+      wonDealsCount: currentData.won_deals_count
     }
   } 
 }
