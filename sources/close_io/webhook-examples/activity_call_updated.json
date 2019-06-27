@@ -1,0 +1,85 @@
+{
+	"payload": {
+		"headers": {
+			"Accept": ["*/*"],
+			"Accept-Encoding": ["gzip, deflate"],
+			"Close-Sig-Hash": ["da40195205b1eb206c9b79e3794f88dc4d99fac116e42ec7912e24155d45b4a1"],
+			"Close-Sig-Timestamp": ["1561595725"],
+			"Content-Length": ["2167"],
+			"Content-Type": ["application/json"],
+			"User-Agent": ["Close Webhooks 2.0"],
+			"X-Amzn-Trace-Id": ["Root=1-5d140f4d-e3e5b38a9b6d64fe1a7740b7"],
+			"X-Forwarded-For": ["54.71.177.103"],
+			"X-Forwarded-Port": ["443"],
+			"X-Forwarded-Proto": ["https"],
+			"X-Request-Id": ["ed381910-24ad-4d4c-90f4-4f5692ee0c42"]
+		},
+		"body": {
+			"event": {
+				"date_created": "2019-06-27T00:35:18.513000",
+				"data": {
+					"date_created": "2019-06-27T00:35:16.412000+00:00",
+					"local_country_iso": "",
+					"disposition": "answered",
+					"updated_by": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB",
+					"status": "completed",
+					"created_by_name": "Francisco Alio",
+					"transferred_to": null,
+					"voicemail_duration": 0,
+					"lead_id": "lead_6jtLjE3zOL2lYxQzalvEF7BTg8awGAXKAVlj6bo0wui",
+					"source": "External",
+					"duration": 0,
+					"created_by": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB",
+					"user_id": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB",
+					"dialer_id": null,
+					"remote_country_iso": "US",
+					"transferred_from": null,
+					"recording_url": null,
+					"call_method": "external",
+					"has_recording": false,
+					"cost": null,
+					"remote_phone": "+13102322342",
+					"user_name": "Francisco Alio",
+					"users": [],
+					"id": "acti_O8H1eRursFaNuMj8mzWQnv6XPVgeEXD3Bzb3s5QzIjN",
+					"remote_phone_formatted": "+1 310-232-2342",
+					"updated_by_name": "Francisco Alio",
+					"contact_id": "cont_qZrs0uDvtDHljl6IojkXypuXkEAsrKib3kU2Fijqhf0",
+					"organization_id": "orga_7q9QmANUTdBpkIjSNjZX7nzkPxolW4xfYifHmXYlcRa",
+					"note": "Called Rebecca.",
+					"phone": "+13102322342",
+					"local_phone_formatted": null,
+					"dialer_saved_search_id": null,
+					"direction": "outbound",
+					"voicemail_url": null,
+					"quality_info": "",
+					"local_phone": null,
+					"_type": "Call",
+					"is_to_group_number": false,
+					"date_updated": "2019-06-27T00:35:21.031000+00:00"
+				},
+				"id": "ev_7ZkVnofmVso3HxNINXRa06",
+				"lead_id": "lead_6jtLjE3zOL2lYxQzalvEF7BTg8awGAXKAVlj6bo0wui",
+				"previous_data": {
+					"note": "",
+					"date_updated": "2019-06-27T00:35:16.412000+00:00"
+				},
+				"object_type": "activity.call",
+				"user_id": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB",
+				"action": "updated",
+				"api_key_id": null,
+				"object_id": "acti_O8H1eRursFaNuMj8mzWQnv6XPVgeEXD3Bzb3s5QzIjN",
+				"meta": {
+					"request_method": "PUT",
+					"request_path": "/api/v1/activity/call/acti_O8H1eRursFaNuMj8mzWQnv6XPVgeEXD3Bzb3s5QzIjN/"
+				},
+				"organization_id": "orga_7q9QmANUTdBpkIjSNjZX7nzkPxolW4xfYifHmXYlcRa",
+				"date_updated": "2019-06-27T00:35:21.034000",
+				"changed_fields": ["date_updated", "note"],
+				"request_id": "req_6hbHjnhElepkGS9H25cTLR"
+			},
+			"subscription_id": "whsub_0b8wXcKhybsWNKnvdeGE3S"
+		},
+		"queryParameters": {}
+	}
+}

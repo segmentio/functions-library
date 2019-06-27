@@ -13,6 +13,7 @@ this repo as the set of examples.
 - [SurveyMonkey](./sources/surveymonkey) - Subscribes to SurveyMonkey webhooks
 - [Stripe Events](./sources/stripe-events) - Subscribes to Stripe webhooks
 - [Pipedrive](./sources/pipedrive) - Subscribes to Pipedrive webhooks
+- [Close.io](./sources/close_io) - Subscribes to Close.io webhooks
 
 ## Destinations
 
