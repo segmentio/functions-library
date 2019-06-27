@@ -43,10 +43,20 @@ const line_items = order.line_items;
 
     const sp = {};
     sp['order_id'] = order.id;
-    sp['order_number'] = order.number;
+    sp['order_number'] = order.order_number;
+    sp['number'] = order.number;
     sp['financial_status'] = order.financial_status;
     sp['fulfillment_status'] = order.fulfillment_status;
     sp['currency'] = order.currency;
+    sp['total_price'] = order.total_price;
+    sp['subtotal_price'] = order.subtotal_price;
+    sp['total_tax'] = order.total_tax;
+    sp['total_discounts'] = order.total_discounts;
+    sp['total_line_items_price'] = order.total_line_items_price;
+    sp['order_name'] = order.name;
+    sp['customer_first_name'] = order.customer.first_name;
+    sp['customer_last_name'] = order.customer.last_name;
+    sp['customer_email'] = order.email;
     sp['products'] = [];
       const len = line_items.length;
       for (var i = 0; i < len; i++) {
@@ -58,12 +68,11 @@ const line_items = order.line_items;
             price: line_items[i].price,
             variant_id: line_items[i].variant_id,
             variant_title: line_items[i].variant_title,
-            total_discount: line_items[i].total_discount,
-            productSku: line_items[i].sku,
-            productUpc: line_items[i].upc,
-            productType: line_items[i].type,
-            productExcludingTax: line_items[i].price_ex_tax,
-            productIncludingTax: line_items[i].price_inc_tax
+            vendor: line_items[i].variant,
+            requires_shipping: line_items[i].requires_shipping,
+            taxable: line_items[i].taxable,
+            name: line_items[i].name
+
           });
       }
     return sp;
