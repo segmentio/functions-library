@@ -1,0 +1,61 @@
+{
+	"payload": {
+		"headers": {
+			"Accept": ["*/*"],
+			"Accept-Encoding": ["gzip, deflate"],
+			"Close-Sig-Hash": ["e398bb2474f8cd1daa4ac9019f46586f82feed7a25cc6906e75332897f5eb85b"],
+			"Close-Sig-Timestamp": ["1561595737"],
+			"Content-Length": ["1518"],
+			"Content-Type": ["application/json"],
+			"User-Agent": ["Close Webhooks 2.0"],
+			"X-Amzn-Trace-Id": ["Root=1-5d140f59-2085b500a208d760d3adfbe8"],
+			"X-Forwarded-For": ["54.71.177.103"],
+			"X-Forwarded-Port": ["443"],
+			"X-Forwarded-Proto": ["https"],
+			"X-Request-Id": ["a020615e-8074-4185-aa67-153ac6a407a4"]
+		},
+		"body": {
+			"event": {
+				"api_key_id": null,
+				"object_type": "activity.note",
+				"user_id": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB",
+				"date_updated": "2019-06-27T00:35:30.667000",
+				"request_id": "req_2vwr9Oqnn6ZWWw0SsczJzU",
+				"changed_fields": ["date_updated", "note"],
+				"lead_id": "lead_6jtLjE3zOL2lYxQzalvEF7BTg8awGAXKAVlj6bo0wui",
+				"id": "ev_54sUUMkzNtjXT3muDNCmCq",
+				"organization_id": "orga_7q9QmANUTdBpkIjSNjZX7nzkPxolW4xfYifHmXYlcRa",
+				"object_id": "acti_5sZvqwIpK42gSJtPmVZjM3RpuBGiLdZRBpGCd1rzPm9",
+				"previous_data": {
+					"date_updated": "2019-06-27T00:35:28.256000+00:00",
+					"note": "T"
+				},
+				"action": "updated",
+				"meta": {
+					"request_method": "PUT",
+					"request_path": "/api/v1/activity/note/acti_5sZvqwIpK42gSJtPmVZjM3RpuBGiLdZRBpGCd1rzPm9/"
+				},
+				"data": {
+					"_type": "Note",
+					"contact_id": null,
+					"note": "This is so cool!",
+					"created_by": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB",
+					"date_updated": "2019-06-27T00:35:30.669000+00:00",
+					"lead_id": "lead_6jtLjE3zOL2lYxQzalvEF7BTg8awGAXKAVlj6bo0wui",
+					"created_by_name": "Francisco Alio",
+					"user_id": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB",
+					"organization_id": "orga_7q9QmANUTdBpkIjSNjZX7nzkPxolW4xfYifHmXYlcRa",
+					"updated_by": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB",
+					"user_name": "Francisco Alio",
+					"id": "acti_5sZvqwIpK42gSJtPmVZjM3RpuBGiLdZRBpGCd1rzPm9",
+					"users": [],
+					"date_created": "2019-06-27T00:35:28.256000+00:00",
+					"updated_by_name": "Francisco Alio"
+				},
+				"date_created": "2019-06-27T00:35:29.406000"
+			},
+			"subscription_id": "whsub_0b8wXcKhybsWNKnvdeGE3S"
+		},
+		"queryParameters": {}
+	}
+}

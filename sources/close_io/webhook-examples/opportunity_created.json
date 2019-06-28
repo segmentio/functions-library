@@ -1,0 +1,69 @@
+{
+	"payload": {
+		"headers": {
+			"Accept": ["*/*"],
+			"Accept-Encoding": ["gzip, deflate"],
+			"Close-Sig-Hash": ["6992cb8c2e335a7bf5a22c6f994c2b025ed2feab8a3d5b2f4e99f58ab05ba2cd"],
+			"Close-Sig-Timestamp": ["1561595618"],
+			"Content-Length": ["1771"],
+			"Content-Type": ["application/json"],
+			"User-Agent": ["Close Webhooks 2.0"],
+			"X-Amzn-Trace-Id": ["Root=1-5d140ee2-79e979b11c6be7f9305a121a"],
+			"X-Forwarded-For": ["52.27.236.234"],
+			"X-Forwarded-Port": ["443"],
+			"X-Forwarded-Proto": ["https"],
+			"X-Request-Id": ["44fd0469-c32c-4ae4-ad15-7111149a9aa8"]
+		},
+		"body": {
+			"subscription_id": "whsub_0b8wXcKhybsWNKnvdeGE3S",
+			"event": {
+				"api_key_id": null,
+				"action": "created",
+				"changed_fields": [],
+				"previous_data": {},
+				"request_id": "req_1zXh8rI7PKPUN25ftvUCzX",
+				"lead_id": "lead_6jtLjE3zOL2lYxQzalvEF7BTg8awGAXKAVlj6bo0wui",
+				"user_id": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB",
+				"organization_id": "orga_7q9QmANUTdBpkIjSNjZX7nzkPxolW4xfYifHmXYlcRa",
+				"date_updated": "2019-06-27T00:33:37.844000",
+				"object_type": "opportunity",
+				"meta": {
+					"request_method": "POST",
+					"request_path": "/api/v1/opportunity/"
+				},
+				"data": {
+					"contact_name": "Rebecca Guru",
+					"lead_name": "Customer.io",
+					"created_by_name": "Francisco Alio",
+					"value_period": "one_time",
+					"status_label": "Active",
+					"status_id": "stat_YbsIAG0jpChcg4jrouu45Ilhdf5U5WaV5wBnxmvx5qN",
+					"value_currency": "USD",
+					"confidence": 70,
+					"date_updated": "2019-06-27T00:33:37.842000+00:00",
+					"lead_id": "lead_6jtLjE3zOL2lYxQzalvEF7BTg8awGAXKAVlj6bo0wui",
+					"value_formatted": "$34,345",
+					"value": 3434500,
+					"date_created": "2019-06-27T00:33:37.842000+00:00",
+					"date_won": "2019-06-29",
+					"user_name": "Francisco Alio",
+					"updated_by": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB",
+					"note": "This is going to be huge.",
+					"integration_links": [],
+					"status_type": "active",
+					"organization_id": "orga_7q9QmANUTdBpkIjSNjZX7nzkPxolW4xfYifHmXYlcRa",
+					"contact_id": "cont_qZrs0uDvtDHljl6IojkXypuXkEAsrKib3kU2Fijqhf0",
+					"updated_by_name": "Francisco Alio",
+					"id": "oppo_MxvuXUHkjPwsAglBTUyoarTh4KeC3dC9Z1RLX7UCQv4",
+					"date_lost": null,
+					"user_id": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB",
+					"created_by": "user_jkKBEsYynjwxnXKxidVoVbl07mIjCizf2gEQVn23kDB"
+				},
+				"id": "ev_6OIclIHPL0drnvsVsxxstW",
+				"object_id": "oppo_MxvuXUHkjPwsAglBTUyoarTh4KeC3dC9Z1RLX7UCQv4",
+				"date_created": "2019-06-27T00:33:37.844000"
+			}
+		},
+		"queryParameters": {}
+	}
+}
