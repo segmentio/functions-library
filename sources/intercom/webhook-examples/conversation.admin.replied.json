@@ -1,0 +1,89 @@
+
+{
+    "type": "notification_event",
+    "app_id": "896jf8ja",
+    "data": {
+        "type": "notification_event_data",
+        "item": {
+            "type": "conversation",
+            "id": "22593792698",
+            "created_at": 1561425477,
+            "updated_at": 1561425898,
+            "user": {
+                "type": "user",
+                "id": "56216a64e28f0d6d0f000610",
+                "user_id": "pTRbgo1ntI",
+                "name": "Alex Millet",
+                "email": "alex@segment.com",
+                "do_not_track": null
+            },
+            "assignee": {
+                "type": "admin",
+                "id": "24385",
+                "name": "Segment Friends",
+                "email": "tools+intercom@segment.com"
+            },
+            "conversation_message": {
+                "type": "conversation_message",
+                "id": "373802872",
+                "url": null,
+                "subject": "<p>Re: [TEST] Intercom Test</p>",
+                "body": "<p>Sup Kevin! Lets trigger some webaaahooooks!</p><br><p>On Mon, Jun 24, 2019 at 6:17 PM Segment from Segment &lt;<a href=\"mailto:segment.friends@segment.intercom-mail.com\" rel=\"nofollow\" target=\"_blank\">segment.friends@segment.intercom-mail.com</a>&gt; wrote:<br> </p> <p>Hi RANDOM, This is a test Kevin to get the source working!</p> <p>- Mountain Goat</p> <a href=\"https://segment.intercom-mail.com/assets/email/personal/triangle-8747882e9ef8882f9bc057241fd3c049.png\" rel=\"nofollow\" target=\"_blank\">https://segment.intercom-mail.com/assets/email/personal/triangle-8747882e9ef8882f9bc057241fd3c049.png</a> <a href=\"https://segment.intercom-mail.com/assets/email/personal/arrow-37f6774809df6fd083bfc98e9d562e23ca6ede618e2b5e10c042de88d2f858dd.png\" rel=\"nofollow\" target=\"_blank\">https://segment.intercom-mail.com/assets/email/personal/arrow-37f6774809df6fd083bfc98e9d562e23ca6ede618e2b5e10c042de88d2f858dd.png</a> <a href=\"https://segment.intercom-mail.com/avatars/24385/square_128/segment-logo-1508314077.png?1508314077\" rel=\"nofollow\" target=\"_blank\">https://segment.intercom-mail.com/avatars/24385/square_128/segment-logo-1508314077.png?1508314077</a> <b>Segment</b> from Segment <a href=\"https://segment.intercom-mail.com/subscriptions/unsubscribe?app_id=896jf8ja&amp;sample=true\" rel=\"nofollow\" target=\"_blank\">Unsubscribe from our emails</a> <br><p><br></p>-- <br><p>Alex Millet<br><b>Segment </b>| Product Manager, Personas<br> </p><p><a href=\"https://drive.google.com/a/segment.com/uc?id=1CXeFTCgmz1Z8RvqQz3I-t6csOVTBxfol&amp;export=download\" rel=\"nofollow\" target=\"_blank\">https://drive.google.com/a/segment.com/uc?id=1CXeFTCgmz1Z8RvqQz3I-t6csOVTBxfol&amp;export=download</a></p>",
+                "author": {
+                    "type": "user",
+                    "id": "56216a64e28f0d6d0f000610"
+                },
+                "attachments": []
+            },
+            "conversation_parts": {
+                "type": "conversation_part.list",
+                "conversation_parts": [
+                    {
+                        "type": "conversation_part",
+                        "id": "3283858285",
+                        "part_type": "comment",
+                        "body": "<p>Hey Alex, where did the name Mountain Goat come from? Just curious</p>",
+                        "created_at": 1561425898,
+                        "updated_at": 1561425898,
+                        "notified_at": 1561425898,
+                        "assigned_to": null,
+                        "author": {
+                            "type": "admin",
+                            "id": "24385",
+                            "name": "Segment Friends"
+                        },
+                        "attachments": [],
+                        "external_id": null
+                    }
+                ],
+                "total_count": 1
+            },
+            "conversation_rating": {},
+            "open": true,
+            "state": "open",
+            "snoozed_until": null,
+            "read": false,
+            "metadata": {},
+            "tags": {
+                "type": "tag.list",
+                "tags": []
+            },
+            "tags_added": {
+                "type": "tag.list",
+                "tags": []
+            },
+            "links": {
+                "conversation_web": "https://app.intercom.io/a/apps/896jf8ja/conversations/22593792698"
+            }
+        }
+    },
+    "links": {},
+    "id": "notif_5f764d6a-108a-4e8e-8714-1d232a5b1e44",
+    "topic": "conversation.admin.replied",
+    "delivery_status": "pending",
+    "delivery_attempts": 1,
+    "delivered_at": 0,
+    "first_sent_at": 1561425900,
+    "created_at": 1561425899,
+    "self": null
+}
