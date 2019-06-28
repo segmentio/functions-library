@@ -1,0 +1,96 @@
+{
+  "carrier": "shippo",
+  "metadata": "Shippo test webhook",
+  "test": true,
+  "data": {
+    "eta": "2019-06-26T23:51:11.965Z",
+    "test": true,
+    "original_eta": "2019-06-25T23:51:11.965Z",
+    "tracking_status": {
+      "status_date": "2019-06-26T21:46:11.974Z",
+      "location": {
+        "zip": "60611",
+        "country": "US",
+        "city": "Chicago",
+        "state": "IL"
+      },
+      "object_created": "2019-06-27T23:51:11.974Z",
+      "object_id": "93c729ab8c824cb6a8c74eea1b4adfce",
+      "status_details": "Your shipment has been delivered.",
+      "status": "DELIVERED"
+    },
+    "address_to": {
+      "zip": "60611",
+      "country": "US",
+      "city": "Chicago",
+      "state": "IL"
+    },
+    "messages": [
+    ],
+    "tracking_number": "SHIPPO_DELIVERED",
+    "servicelevel": {
+      "token": "shippo_priority"
+    },
+    "tracking_history": [
+      {
+        "status_date": "2019-06-23T15:31:11.977Z",
+        "location": {
+          "zip": "94103",
+          "country": "US",
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        "object_created": "2019-06-27T23:51:11.977Z",
+        "object_id": "e0123d4b65d54f42bfdf388c27a9cf20",
+        "status_details": "The carrier has received the electronic shipment information.",
+        "status": "UNKNOWN"
+      },
+      {
+        "status_date": "2019-06-24T17:36:11.977Z",
+        "location": {
+          "zip": "94103",
+          "country": "US",
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        "object_created": "2019-06-27T23:51:11.977Z",
+        "object_id": "df04685b7d7c4b76b2f8dc09d2509c6e",
+        "status_details": "Your shipment has departed from the origin.",
+        "status": "TRANSIT"
+      },
+      {
+        "status_date": "2019-06-25T19:41:11.977Z",
+        "location": {
+          "zip": "37501",
+          "country": "US",
+          "city": "Memphis",
+          "state": "TN"
+        },
+        "object_created": "2019-06-27T23:51:11.977Z",
+        "object_id": "767e23d8462440f0b4a7cfd3ff6a256d",
+        "status_details": "The Postal Service has identified a problem with the processing of this item and you should contact support to get further information.",
+        "status": "FAILURE"
+      },
+      {
+        "status_date": "2019-06-26T21:46:11.977Z",
+        "location": {
+          "zip": "60611",
+          "country": "US",
+          "city": "Chicago",
+          "state": "IL"
+        },
+        "object_created": "2019-06-27T23:51:11.977Z",
+        "object_id": "fe66a6e8b69c4704b9bef530241b5f8d",
+        "status_details": "Your shipment has been delivered.",
+        "status": "DELIVERED"
+      }
+    ],
+    "address_from": {
+      "zip": "94103",
+      "country": "US",
+      "city": "San Francisco",
+      "state": "CA"
+    }
+  },
+  "event": "track_updated"
+}
