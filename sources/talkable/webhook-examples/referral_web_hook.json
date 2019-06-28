@@ -1,0 +1,161 @@
+{
+  "payload": {
+    "campaign": {
+      "id": 181323269,
+      "type": "StandaloneCampaign",
+      "cached_slug": 181323269,
+      "tag_names": [
+        "default"
+      ],
+      "origin_min_age": null,
+      "origin_max_age": null,
+      "new_customer": null
+    },
+    "offer": {
+      "email": "referrer@example.com",
+      "short_url_code": "1a2PV",
+      "ip_address": "127.0.0.1"
+    },
+    "referrer": {
+      "id": 543084151,
+      "email": "referrer@example.com",
+      "person": {
+        "email": "referrer@example.com",
+        "first_name": "Bob",
+        "last_name": "Crane",
+        "gender": null,
+        "sub_choice": false,
+        "subscribed_at": null,
+        "opted_in_at": null,
+        "unsubscribed_at": null,
+        "referral_counts": {
+          "total": 1,
+          "approved": 1,
+          "pending": 0
+        }
+      },
+      "amount": "5.00",
+      "incentive": "rebate",
+      "incentive_description": "$5.00 back",
+      "origin": {
+        "id": 980440906,
+        "type": "AffiliateMember",
+        "email": "referrer@example.com",
+        "customer_id": "39631676",
+        "ip_address": "127.0.0.1"
+      }
+    },
+    "referred": {
+      "id": 716862820,
+      "email": "referred@example.com",
+      "person": {
+        "email": "referred@example.com",
+        "first_name": "Alice",
+        "last_name": "Smith",
+        "gender": null,
+        "sub_choice": true,
+        "subscribed_at": "2019-06-27T10:32:56.533-07:00",
+        "opted_in_at": "2019-06-27T10:32:56.533-07:00",
+        "unsubscribed_at": null,
+        "referral_counts": {
+          "total": 0,
+          "approved": 0,
+          "pending": 0
+        }
+      },
+      "amount": "0.00",
+      "incentive": "other",
+      "incentive_description": "First Month Free",
+      "origin": {
+        "id": 856052654,
+        "type": "Purchase",
+        "order_number": "764849181",
+        "subtotal": 72.55,
+        "customer_id": "288009888",
+        "order_date": "2019-06-27T10:33:56.533-07:00",
+        "coupon_code": "WHT49748",
+        "ip_address": "127.0.0.1"
+      }
+    },
+    "advocate_rewards": [
+      {
+        "id": 543084151,
+        "email": "referrer@example.com",
+        "person": {
+          "email": "referrer@example.com",
+          "first_name": "Bob",
+          "last_name": "Crane",
+          "gender": null,
+          "sub_choice": false,
+          "subscribed_at": null,
+          "opted_in_at": null,
+          "unsubscribed_at": null,
+          "referral_counts": {
+            "total": 1,
+            "approved": 1,
+            "pending": 0
+          }
+        },
+        "amount": "5.00",
+        "incentive": "rebate",
+        "incentive_description": "$5.00 back",
+        "origin": {
+          "id": 980440906,
+          "type": "AffiliateMember",
+          "email": "referrer@example.com",
+          "customer_id": "39631676",
+          "ip_address": "127.0.0.1"
+        }
+      }
+    ],
+    "friend_rewards": [
+      {
+        "id": 716862820,
+        "email": "referred@example.com",
+        "person": {
+          "email": "referred@example.com",
+          "first_name": "Alice",
+          "last_name": "Smith",
+          "gender": null,
+          "sub_choice": true,
+          "subscribed_at": "2019-06-27T10:32:56.533-07:00",
+          "opted_in_at": "2019-06-27T10:32:56.533-07:00",
+          "unsubscribed_at": null,
+          "referral_counts": {
+            "total": 0,
+            "approved": 0,
+            "pending": 0
+          }
+        },
+        "amount": "0.00",
+        "incentive": "other",
+        "incentive_description": "First Month Free",
+        "origin": {
+          "id": 856052654,
+          "type": "Purchase",
+          "order_number": "764849181",
+          "subtotal": 72.55,
+          "customer_id": "288009888",
+          "order_date": "2019-06-27T10:33:56.533-07:00",
+          "coupon_code": "WHT49748",
+          "ip_address": "127.0.0.1"
+        }
+      }
+    ],
+    "referred_origin": {
+      "id": 123238909,
+      "type": "Purchase",
+      "order_number": "977692629",
+      "subtotal": 63.23,
+      "customer_id": "330657900",
+      "order_date": "2019-06-27T10:33:56.533-07:00",
+      "coupon_code": "WHT39051",
+      "ip_address": "127.0.0.1"
+    }
+  },
+  "extras": {},
+  "key": "b3ab02149bd6aa9caefa7cad9e410236",
+  "site": "segment-com",
+  "type": "referral_web_hook",
+  "test": true
+}
