@@ -18,3 +18,5 @@ this repo as the set of examples.
 ## Destinations
 
 - [Follow Along](./destinations/follow-along) - Generates Fullstory links and sends to Slack
+- [Requestbin](./destinations/requestbin) - Sends events to RequestBin for introspection
+- [Slack](./destinations/slack) - Adds a Gravatar icon to events with an email and sends messages to Slack
