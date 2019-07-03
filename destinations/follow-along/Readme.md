@@ -1,4 +1,3 @@
-
 # Follow Along
 
 This function automatically posts to Slack whenever a user completes one of the
