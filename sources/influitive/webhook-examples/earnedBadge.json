@@ -1,0 +1,31 @@
+{
+  "payload": {
+    "body": {
+      "additional_data": {},
+      "billable": false,
+      "challenge": {},
+      "contact": {
+        "company": null,
+        "contact_points": 0,
+        "email": "test@test.com",
+        "first_name": "Test",
+        "full_name": "Test Test",
+        "id": 1234,
+        "last_name": "Test",
+        "title": null,
+        "uuid": "12dewq3-756e-eewqr3-b013-e2fc8dd15462"
+      },
+      "created": 1561648220,
+      "id": 12345,
+      "name": "Earned Badge",
+      "parameters": {
+        "badge": "Welcome!",
+        "description": "This is a description of the badge"
+      },
+      "points": 0,
+      "source_name": "Welcome!",
+      "source_type": "AwardStatus",
+      "type": "earned_badge"
+    }
+  }
+}

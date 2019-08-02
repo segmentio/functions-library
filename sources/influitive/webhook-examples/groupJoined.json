@@ -1,0 +1,33 @@
+{
+  "payload": {
+    "body": {
+      "additional_data": {},
+      "billable": false,
+      "challenge": {},
+      "contact": {
+        "company": null,
+        "contact_points": 0,
+        "crm_metadata": {},
+        "email": "test@test.com",
+        "first_name": "Test",
+        "full_name": "Test Test",
+        "id": 1234,
+        "last_name": "Test",
+        "title": null,
+        "uuid": "d233be34-52d9-49b6-ac24-f7650ebb4771"
+      },
+      "created": 1561650328,
+      "id": 22745,
+      "name": "Joined AdvocateHub Group",
+      "parameters": {
+        "group": "Intro Group",
+        "group_id": 116,
+        "type": "implicit_group_join"
+      },
+      "points": 0,
+      "source_name": "Intro Group",
+      "source_type": "Group",
+      "type": "influitive_group_join"
+    }
+  }
+}
