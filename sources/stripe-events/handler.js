@@ -11,7 +11,6 @@ exports.processEvents = async event => {
   if (eventBody.type == "charge.succeeded") {
 =======
   if (eventBody.type == "charge.succeeded" && eventBody.data.object.customer) {
->>>>>>> c36894a945c512c1bde54b2dc1ffd2bef2a3f06a
     const chargeSucceeded = {
       type: "track",
       event: "Charge Succeeded",
