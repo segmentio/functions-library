@@ -19,7 +19,7 @@ exports.processEvents = async (event) => {
 
   if (eventBody.event_type == 'form_response') {
     const responseObj = {
-      collection: 'Form Responses',
+      collection: 'form_responses',
       id: formResponse.form_id,
       properties: {
         token: formResponse.token,
@@ -48,7 +48,7 @@ function buildAnswerObj(fullAnswer) {
 function buildQuestion(formFields, id) {
   
   const questionObj = {
-        collection: 'Form Questions',
+        collection: 'form_questions',
         id: id,
         properties: {
           responseId: id,
@@ -65,7 +65,7 @@ function buildQuestion(formFields, id) {
 function buildAnswer(answerFields, questionId) {
   
   const answerObj = {
-        collection: 'Form Answers',
+        collection: 'form_answers',
         id: answerFields.id,
         properties: {
           questionId: questionId,
