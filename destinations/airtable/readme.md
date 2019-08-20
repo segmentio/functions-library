@@ -33,4 +33,4 @@ This function helps you add user feedback directly into Airtable's [User Feedbac
 ## Settings
 
 - `apiKey` (string) 
-- `baseId` (string) 
+- `appId` (string) 
