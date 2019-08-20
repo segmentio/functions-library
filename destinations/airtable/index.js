@@ -29,7 +29,7 @@ async function track(event, settings) {
       },
       method: "post"
     }
-    console.log("request init", init)
+    
     const res = await fetch(endpoint, init)
     return res.json()
   }
@@ -43,6 +43,11 @@ async function identify(event, settings) {
 // Page is not supported
 async function page(event, settings) {
   throw new EventNotSupported("The Page method is not supported.")
+}
+
+// Group is not supported
+async function page(event, settings) {
+  throw new EventNotSupported("The Group method is not supported.")
 }
 
 // Alias is not supported
