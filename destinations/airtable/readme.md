@@ -11,7 +11,7 @@ This function helps you add user feedback directly into Airtable's [User Feedbac
 ```
 {
   "type": "track",
-  "event": "User Feedback Added",
+  "event": "Feedback Added",
   "userId": "userId888",
   "timestamp": "2019-04-08T01:19:38.931Z",
   "email": "test@example.com",
