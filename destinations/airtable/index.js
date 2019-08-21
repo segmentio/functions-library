@@ -19,7 +19,7 @@ async function track(event, settings) {
       "Usage (# Weeks)": event.properties.usage,
       "Least Favorite Features": leastFavFeaturesArray
     }
-    }
+}
     
     const init =  {
       body: JSON.stringify(airTableEvent),
