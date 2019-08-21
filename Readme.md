@@ -20,4 +20,4 @@ this repo as the set of examples.
 - [Follow Along](./destinations/follow-along) - Generates Fullstory links and sends to Slack
 - [Requestbin](./destinations/requestbin) - Sends events to RequestBin for introspection
 - [Slack](./destinations/slack) - Adds a Gravatar icon to events with an email and sends messages to Slack
-- [Datadog](./destinations/datadog) - Sends a metric to datadog with high level messge/event type as tags
+- [Datadog](./destinations/datadog) - Sends a metric to datadog with high level message/event type as tags
