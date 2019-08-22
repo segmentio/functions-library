@@ -46,32 +46,30 @@ function buildAnswerObj(fullAnswer) {
 }
 
 function buildQuestion(formFields, id) {
-  
   const questionObj = {
-        collection: 'form_questions',
-        id: id,
-        properties: {
-          responseId: id,
-          title: formFields.title,
-          type: formFields.type,
-          ref: formFields.ref,
-          allowMultipleSelections: formFields.allow_multiple_selections,
-          allowOtherChoices: formFields.allow_other_choices
-        }
-      }
+    collection: 'form_questions',
+    id: id,
+    properties: {
+      responseId: id,
+      title: formFields.title,
+      type: formFields.type,
+      ref: formFields.ref,
+      allowMultipleSelections: formFields.allow_multiple_selections,
+      allowOtherChoices: formFields.allow_other_choices
+    }
+  }
   return questionObj
 }
 
 function buildAnswer(answerFields, questionId) {
-  
   const answerObj = {
-        collection: 'form_answers',
-        id: answerFields.id,
-        properties: {
-          questionId: questionId,
-          type: answerFields.type,
-          answer: buildAnswerObj(answerFields)
-        }
-      }
+    collection: 'form_answers',
+    id: answerFields.id,
+    properties: {
+      questionId: questionId,
+      type: answerFields.type,
+      answer: buildAnswerObj(answerFields)
+    }
+  }
   return answerObj
 }
