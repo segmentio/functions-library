@@ -18,7 +18,7 @@ async function track(event, settings) {
         "tags": ["application-support"]
       }
     }
-    console.log('new ticket payload', newTicket)
+
     const res = await fetch(endpoint, {
       body: JSON.stringify(newTicket),
       headers: {
