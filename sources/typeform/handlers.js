@@ -6,26 +6,39 @@ exports.processEvents = async (event) => {
   let eventHeaders = event.payload.headers;
   let queryParameters = event.payload.queryParameters;
   let returnValue = {
+    events: [],
     objects: []
   }
 
   const formResponse = eventBody.form_response;
+  const responseId = formResponse.token;
+  
+  const trackEvent = {
+  	type: 'track',
+    event: 'Form responded',
+    userId: formResponse.hidden.user_id,
+    properties: {
+    	formTitle: formResponse.definition.title,
+      	formId: formResponse.form_id,
+        formResponseId: responseId
+    }
+  }
+  returnValue.events.push(trackEvent)
 
   // Iterates through nested fields to build question answer pairs
   for (var i=0; i < formResponse.definition.fields.length; i++) {
     returnValue.objects.push(buildQuestion(formResponse.definition.fields[i], formResponse.form_id))
-    returnValue.objects.push(buildAnswer(formResponse.answers[i], formResponse.definition.fields[i].id))
+    returnValue.objects.push(buildAnswer(formResponse.answers[i], formResponse.definition.fields[i].id, responseId))
   }
 
   if (eventBody.event_type == 'form_response') {
     const responseObj = {
       collection: 'form_responses',
-      id: formResponse.form_id,
+      id: responseId,
       properties: {
-        token: formResponse.token,
+        formId: formResponse.form_id,
         submitTime: formResponse.submitted_at,
-        landTime: formResponse.landed_at,
-        formTitle: formResponse.definition.title
+        landTime: formResponse.landed_at
       }
     }
     returnValue.objects.push(responseObj)
@@ -45,13 +58,13 @@ function buildAnswerObj(fullAnswer) {
   }
 }
 
-function buildQuestion(formFields, id) {
+function buildQuestion(formFields, formId) {
   
   const questionObj = {
         collection: 'form_questions',
-        id: id,
+        id: formFields.id,
         properties: {
-          responseId: id,
+          formId: formId,
           title: formFields.title,
           type: formFields.type,
           ref: formFields.ref,
@@ -62,14 +75,14 @@ function buildQuestion(formFields, id) {
   return questionObj
 }
 
-function buildAnswer(answerFields, questionId) {
+function buildAnswer(answerFields, questionId, responseId) {
   
   const answerObj = {
         collection: 'form_answers',
-        id: answerFields.id,
+        id: responseId.concat(':', questionId),
         properties: {
+          responseId: responseId,
           questionId: questionId,
-          type: answerFields.type,
           answer: buildAnswerObj(answerFields)
         }
       }
