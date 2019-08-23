@@ -50,7 +50,7 @@ function buildQuestion(formFields, id) {
     collection: 'form_questions',
     id: id,
     properties: {
-      responseId: id,
+      responseId: formFields.id,
       title: formFields.title,
       type: formFields.type,
       ref: formFields.ref,
