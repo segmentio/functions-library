@@ -1,10 +1,10 @@
 const endpoint = "http://api.ipstack.com/"
 
-// the Base64 encoded write key of the source you want to send data
-const writeKey = "YOUR-WRITE-KEY"
-
 // enriches an identify call and writes it back to a separate source in Segment
 async function identify(event, settings) {
+  
+  // the write key of the Segment source you want to send geo data to
+  const writeKey = btoa(settings.sourceWriteKey)
 
   if (event.context && event.context.ip && event.userId) {
     const ip = event.context.ip
