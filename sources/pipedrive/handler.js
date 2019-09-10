@@ -1,6 +1,12 @@
-exports.processEvents = async (event) => {
-  return transform(event.payload.body);
-};
+/**
+ * @typedef {import('./segment_internal_types).BasicEvent} BasicEvent
+ * Please do not delete [used for Intellisense]
+ * @param {BasicEvent} event
+ * @returns {void}
+ */
+async function onRequest(request, settings) {
+  return transform(requestBody);
+}
 
 function transform(event) {
   let eventData = event;
@@ -27,7 +33,7 @@ function transform(event) {
   // Send an event when a deal is added to
   // trigger a workflow downstream
   if (eventData.event == 'added.deal') {
-    let track = {
+    returnValue.events.push(track({
       type: 'track',
       event: 'Deal Added',
       userId: "" + eventObject.user_id,
@@ -38,9 +44,7 @@ function transform(event) {
         status: eventObject.status,
         currency: eventObject.currency
       }
-    }
-
-    returnValue.events.push(track)
+    }))
   }
 
   // Return the objects and events to send the API calls
@@ -50,7 +54,7 @@ function transform(event) {
 function createDealObject(eventData) {
   let currentData = eventData.current;
 
-  return {
+  return set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
@@ -73,13 +77,13 @@ function createDealObject(eventData) {
       value: currentData.value,
       wonTime: currentData.won_time
     }
-  }
+  })
 }
 
 function createOrganizationObject(eventData) {
   let currentData = eventData.current;
 
-  return {
+  return set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
@@ -100,13 +104,13 @@ function createOrganizationObject(eventData) {
       updatedTime: currentData.update_time,
       wonDealsCount: currentData.won_deals_count
     }
-  }
+  })
 }
 
 function createNoteObject(eventData) {
   let currentData = eventData.current;
 
-  return {
+  return set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
@@ -120,13 +124,13 @@ function createNoteObject(eventData) {
       personId: currentData.person_id,
       personName: currentData.person.name
     }
-  }  
+  }) 
 }
 
 function createPersonObject(eventData) {
   let currentData = eventData.current;
 
-  return {
+  return set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
@@ -145,5 +149,5 @@ function createPersonObject(eventData) {
       updatedTime: currentData.updated_time,
       wonDealsCount: currentData.won_deals_count
     }
-  } 
+  })
 }
