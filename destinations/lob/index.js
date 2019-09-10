@@ -32,7 +32,7 @@ async function screen(event, settings) {
 // Helper function to call the Lob API
 async function callLobApi(name, address, settings) {
   let body = {
-    description: 'KicksCentral Customer Satisfaction Card',
+    description: 'Description of the card',
     to: {
       name: name,
       address_line1: address_line1,
