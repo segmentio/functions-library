@@ -9,11 +9,6 @@ async function track(event, settings) {
   }
 }
 
-// generate the fullstory url from the `userId`
-function fullstoryURL(userId) {
-  return `https://app.fullstory.com/ui/1JO/segments/everyone/people:search:((NOW%2FDAY-29DAY:NOW%2FDAY%2B1DAY):((UserAppKey:==:%22${userId}%22)):():():():)/0`
-}
-
 async function identify(event, settings) {
   throw new EventNotSupported("identify not supported")
 }
