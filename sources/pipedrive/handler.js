@@ -33,7 +33,7 @@ function transform(event) {
   // Send an event when a deal is added to
   // trigger a workflow downstream
   if (eventData.event == 'added.deal') {
-    returnValue.events.push(track({
+    returnValue.events.push(Segment.track({
       type: 'track',
       event: 'Deal Added',
       userId: "" + eventObject.user_id,
@@ -54,7 +54,7 @@ function transform(event) {
 function createDealObject(eventData) {
   let currentData = eventData.current;
 
-  return set({
+  return Segment.set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
@@ -83,7 +83,7 @@ function createDealObject(eventData) {
 function createOrganizationObject(eventData) {
   let currentData = eventData.current;
 
-  return set({
+  return Segment.set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
@@ -110,7 +110,7 @@ function createOrganizationObject(eventData) {
 function createNoteObject(eventData) {
   let currentData = eventData.current;
 
-  return set({
+  return Segment.set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
@@ -130,7 +130,7 @@ function createNoteObject(eventData) {
 function createPersonObject(eventData) {
   let currentData = eventData.current;
 
-  return set({
+  return Segment.set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
