@@ -1,18 +1,18 @@
 /**
- * Typeform: Online form building and online surveys
- * Use case: When a form or survey is filled out, capture that information to send through to Segment to trigger other actions
- * 
- * Please do not delete [used for Intellisense]
- * @param {ServerRequest} request The incoming webhook request
- * @param {Object.<string, any>} settings Custom settings
- * @return {Promise<any[]>}
- */
+* Typeform: Online form building and online surveys
+* Use case: When a form or survey is filled out, capture that information to send through to Segment to trigger other actions
+* 
+* Please do not delete [used for Intellisense]
+* @param {ServerRequest} request The incoming webhook request
+* @param {Object.<string, any>} settings Custom settings
+* @return {Promise<any[]>}
+*/
 async function onRequest(request, settings) {
   let eventBody = request.json();
   const formResponse = eventBody.form_response;
 
   // Iterates through nested fields to build question answer pairs
-  for (var i=0; i < formResponse.definition.fields.length; i++) {
+  for (var i = 0; i < formResponse.definition.fields.length; i++) {
     buildQuestion(formResponse.definition.fields[i], formResponse.form_id)
     buildAnswer(formResponse.answers[i], formResponse.definition.fields[i].id)
   }
@@ -34,7 +34,7 @@ async function onRequest(request, settings) {
 // Helper Functions
 
 function buildAnswerObj(fullAnswer) {
-  if(fullAnswer["choices"]  != undefined) {
+  if (fullAnswer["choices"] != undefined) {
     return fullAnswer["choices"]["labels"].join();
   } else if (fullAnswer["choice"] != undefined) {
     return fullAnswer["choice"]["label"];
@@ -61,7 +61,7 @@ function buildQuestion(formFields, id) {
 function buildAnswer(answerFields, questionId) {
   Segment.set({
     collection: 'form_answers',
-    id: answerFields.id,
+    id: answerFields.field.id,
     properties: {
       questionId: questionId,
       type: answerFields.type,
