@@ -28,7 +28,7 @@ function transform(event) {
   // Send an event when a deal is added to
   // trigger a workflow downstream
   if (eventData.event == 'added.deal') {
-    returnValue.push(Segment.track({
+    Segment.track({
       type: 'track',
       event: 'Deal Added',
       userId: "" + eventObject.user_id,
@@ -39,7 +39,7 @@ function transform(event) {
         status: eventObject.status,
         currency: eventObject.currency
       }
-    }))
+    })
   }
 }
 
