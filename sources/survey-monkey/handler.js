@@ -2,14 +2,14 @@
  * Please do not delete [used for Intellisense]
  * @param {ServerRequest} request The incoming webhook request
  * @param {Object.<string, any>} settings Custom settings
- * @return {Promise<any[]>}
+ * @return void
  */
 async function onRequest(request, settings) {
   let eventBody = request.json();
 
   Segment.track({
     event: eventBody.event_type,
-    userId: eventBody.resources.respondent_id, 
+    userId: eventBody.resources.respondent_id,
     timestamp: eventBody.event_datetime,
     properties: {
       source: "SurveyMonkey",
