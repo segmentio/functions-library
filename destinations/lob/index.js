@@ -1,6 +1,6 @@
 const endpoint = "https://api.lob.com/v1/postcards"
 
-async function track(event, settings) {
+async function onTrack(event, settings) {
   // Only call the Lob API if the item failed to be sent to the customer
   if (event.event == "Item failed") {
     return await callLobApi(event.properties.name, event.properties.address, settings);
@@ -9,23 +9,23 @@ async function track(event, settings) {
   }
 }
 
-async function identify(event, settings) {
+async function onIdentify(event, settings) {
   throw new EventNotSupported("identify not supported")
 }
 
-async function group(event, settings) {
+async function onGroup(event, settings) {
   throw new EventNotSupported("group not supported")
 }
 
-async function page(event, settings) {
+async function onPage(event, settings) {
   throw new EventNotSupported("page not supported")
 }
 
-async function alias(event, settings) {
+async function onAlias(event, settings) {
   throw new EventNotSupported("alias not supported")
 }
 
-async function screen(event, settings) {
+async function onScreen(event, settings) {
   throw new EventNotSupported("screen not supported")
 }
 
