@@ -1,4 +1,4 @@
-async function track(event, settings) {
+async function onTrack(event, settings) {
   const endpoint = `https://${settings.subdomain}.zendesk.com/api/v2/tickets.json`
   
   if (event.event = "Application Submitted") {
@@ -34,26 +34,26 @@ async function track(event, settings) {
 }
 
 // Identify is not supported
-async function identify(event, settings) {
+async function onIdentify(event, settings) {
   throw new EventNotSupported("The Identify method is not supported.")
 }
 
 // Page is not supported
-async function page(event, settings) {
+async function onPage(event, settings) {
   throw new EventNotSupported("The Page method is not supported.")
 }
 
 // Group is not supported
-async function page(event, settings) {
+async function onGroup(event, settings) {
   throw new EventNotSupported("The Group method is not supported.")
 }
 
 // Alias is not supported
-async function alias(event, settings) {
+async function onAlias(event, settings) {
   throw new EventNotSupported("The Alias method is not supported.")
 }
 
 // Screen is not supported
-async function screen(event, settings) {
+async function onScreen(event, settings) {
   throw new EventNotSupported("The Screen method is not supported.")
 }
