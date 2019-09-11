@@ -1,31 +1,26 @@
 /**
- * @typedef {import('./segment_internal_types).BasicEvent} BasicEvent
  * Please do not delete [used for Intellisense]
- * @param {BasicEvent} event
- * @returns {void}
+ * @param {ServerRequest} request The incoming webhook request
+ * @param {Object.<string, any>} settings Custom settings
+ * @return {Promise<any[]>}
  */
 async function onRequest(request, settings) {
+  const requestBody = await request.json()
   return transform(requestBody);
 }
 
 function transform(event) {
   let eventData = event;
   let eventObject = eventData.current;
-  let returnValue = {
-    events: [],
-    objects: []
-  }
-
-  let collectionName = eventData.meta.object + "s";
 
   if (eventData.meta.object == 'deal') {
-    returnValue.objects.push(createDealObject(eventData));
+    createDealObject(eventData);
   } else if (eventData.meta.object == 'organization') {
-    returnValue.objects.push(createOrganizationObject(eventData));
+    createOrganizationObject(eventData);
   } else if (eventData.meta.object == 'note') {
-    returnValue.objects.push(createNoteObject(eventData));
+    createNoteObject(eventData);
   } else if (eventData.meta.object == 'person') {
-    returnValue.objects.push(createPersonObject(eventData));
+    createPersonObject(eventData);
   } else {
     console.log("Unsupported Event: " + eventData.meta.object);
   }
@@ -33,7 +28,7 @@ function transform(event) {
   // Send an event when a deal is added to
   // trigger a workflow downstream
   if (eventData.event == 'added.deal') {
-    returnValue.events.push(Segment.track({
+    returnValue.push(Segment.track({
       type: 'track',
       event: 'Deal Added',
       userId: "" + eventObject.user_id,
@@ -46,15 +41,12 @@ function transform(event) {
       }
     }))
   }
-
-  // Return the objects and events to send the API calls
-  return returnValue;
 }
 
 function createDealObject(eventData) {
   let currentData = eventData.current;
 
-  return Segment.set({
+  Segment.set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
@@ -83,7 +75,7 @@ function createDealObject(eventData) {
 function createOrganizationObject(eventData) {
   let currentData = eventData.current;
 
-  return Segment.set({
+  Segment.set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
@@ -110,7 +102,7 @@ function createOrganizationObject(eventData) {
 function createNoteObject(eventData) {
   let currentData = eventData.current;
 
-  return Segment.set({
+  Segment.set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
@@ -130,7 +122,7 @@ function createNoteObject(eventData) {
 function createPersonObject(eventData) {
   let currentData = eventData.current;
 
-  return Segment.set({
+  Segment.set({
     collection: eventData.meta.object + "s",
     id: "" + eventData.meta.id,
     properties: {
