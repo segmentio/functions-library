@@ -1,9 +1,9 @@
 /**
- * Please do not delete [used for Intellisense]
- * @param {ServerRequest} request The incoming webhook request
- * @param {Object.<string, any>} settings Custom settings
- * @return {Promise<any[]>}
- */
+* Please do not delete [used for Intellisense]
+* @param {ServerRequest} request The incoming webhook request
+* @param {Object.<string, any>} settings Custom settings
+* @return void
+*/
 async function onRequest(request, settings) {
   return transform(request.json());
 }
@@ -114,7 +114,7 @@ function createNoteObject(eventData) {
       personId: currentData.person_id,
       personName: currentData.person.name
     }
-  }) 
+  })
 }
 
 function createPersonObject(eventData) {
