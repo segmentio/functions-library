@@ -5,8 +5,7 @@
  * @return {Promise<any[]>}
  */
 async function onRequest(request, settings) {
-  const requestBody = await request.json()
-  return transform(requestBody);
+  return transform(request.json());
 }
 
 function transform(event) {
