@@ -243,7 +243,6 @@ async function onRequest(request, settings) {
     }
 
     Segment.track({
-      type: 'track',
       event: formattedType.join(' ') + ' Created',
       userId: eventBody.event.data.created_by,
       properties: props
@@ -266,7 +265,6 @@ async function onRequest(request, settings) {
     }
 
     Segment.track({
-      type: 'track',
       event: formattedType.join(' ') + ' Updated',
       userId: eventBody.event.data.created_by,
       properties: props
@@ -289,7 +287,6 @@ async function onRequest(request, settings) {
     }
 
     Segment.track({
-      type: 'track',
       event: formattedType.join(' ') + ' Deleted',
       userId: eventBody.event.data.created_by,
       properties: props
