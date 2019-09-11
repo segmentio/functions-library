@@ -29,7 +29,6 @@ function transform(event) {
   // trigger a workflow downstream
   if (eventData.event == 'added.deal') {
     Segment.track({
-      type: 'track',
       event: 'Deal Added',
       userId: "" + eventObject.user_id,
       properties: {
