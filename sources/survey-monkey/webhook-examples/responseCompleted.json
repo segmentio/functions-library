@@ -1,17 +1,21 @@
 {
-    "event_datetime": "2019-06-25T22:21:35.296175+00:00",
-    "resources": {
-      "respondent_id": "10822661769",
-      "recipient_id": "0",
-      "user_id": "136503362",
-      "collector_id": "239253167",
-      "survey_id": "181192877"
-    },
-    "name": "survey completed",
-    "object_id": "10822661769",
-    "filter_id": "181192877",
-    "event_id": "10015473787",
-    "object_type": "response",
-    "filter_type": "survey",
-    "event_type": "response_completed"
+  "payload": {
+    "body": {
+      "event_datetime": "2019-06-25T22:21:35.296175+00:00",
+      "resources": {
+        "respondent_id": "10822661769",
+        "recipient_id": "0",
+        "user_id": "136503362",
+        "collector_id": "239253167",
+        "survey_id": "181192877"
+      },
+      "name": "survey completed",
+      "object_id": "10822661769",
+      "filter_id": "181192877",
+      "event_id": "10015473787",
+      "object_type": "response",
+      "filter_type": "survey",
+      "event_type": "response_completed"
+    }
   }
+}

@@ -1,15 +1,14 @@
-// 1. Access your event body, headers and query parameters through the event object
-// 2. Transform the event into Segment Tracking Events or Objects by returning an object with the appropriate keys
-
-exports.processEvents = async (event) => {
-  let eventBody = event.payload.body;
-  let returnValue = {
-    objects: [],
-    events: []
-  }
+/**
+* Please do not delete [used for Intellisense]
+* @param {ServerRequest} request The incoming webhook request
+* @param {Object.<string, any>} settings Custom settings
+* @return void
+*/
+async function onRequest(request, settings) {
+  let eventBody = request.json()
 
   if (eventBody.event.object_type == 'opportunity') {
-    const opportunityObj = {
+    Segment.set({
       collection: 'opportunities',
       id: eventBody.event.data.id,
       properties: {
@@ -42,12 +41,11 @@ exports.processEvents = async (event) => {
         webhookId: eventBody.subscription_id, // id of the incoming webhook
         source: 'Close.io'
       }
-    }
-    returnValue.objects.push(opportunityObj)
+    })
   }
 
   if (eventBody.event.object_type == 'lead') {
-    const leadObj = {
+    Segment.set({
       collection: 'leads',
       id: eventBody.event.data.id,
       properties: {
@@ -70,12 +68,11 @@ exports.processEvents = async (event) => {
         webhookId: eventBody.subscription_id, // id of the incoming webhook
         source: 'Close.io'
       }
-    }
-    returnValue.objects.push(leadObj)
+    })
   }
 
   if (eventBody.event.object_type == 'contact') {
-    const contactObj = {
+    Segment.set({
       collection: 'contacts',
       id: eventBody.event.data.id,
       properties: {
@@ -94,12 +91,11 @@ exports.processEvents = async (event) => {
         webhookId: eventBody.subscription_id, // id of the incoming webhook
         source: 'Close.io'
       }
-    }
-    returnValue.objects.push(contactObj)
+    })
   }
 
   if (eventBody.event.object_type == 'activity.note') {
-    const noteObj = {
+    Segment.set({
       collection: 'activity_notes',
       id: eventBody.event.data.id,
       properties: {
@@ -121,12 +117,11 @@ exports.processEvents = async (event) => {
         webhookId: eventBody.subscription_id, // id of the incoming webhook
         source: 'Close.io'
       }
-    }
-    returnValue.objects.push(noteObj)
+    })
   }
 
   if (eventBody.event.object_type == 'activity.call') {
-    const callObj = {
+    Segment.set({
       collection: 'activity_calls',
       id: eventBody.event.data.id,
       properties: {
@@ -172,12 +167,11 @@ exports.processEvents = async (event) => {
         webhookId: eventBody.subscription_id, // id of the incoming webhook
         source: 'Close.io'
       }
-    }
-    returnValue.objects.push(callObj)
+    })
   }
 
   if (eventBody.event.object_type == 'activity.email') {
-    const emailObj = {
+    Segment.set({
       collection: 'activity_emails',
       id: eventBody.event.data.id,
       properties: {
@@ -230,14 +224,13 @@ exports.processEvents = async (event) => {
         webhookId: eventBody.subscription_id, // id of the incoming webhook
         source: 'Close.io'
       }
-    }
-    returnValue.objects.push(emailObj)
+    })
   }
 
 
   if (eventBody.event.action == 'created') {
     let formattedType = eventBody.event.object_type.split('.')
-    for (let i=0; i < formattedType.length; i++){
+    for (let i = 0; i < formattedType.length; i++) {
       formattedType[i] = formattedType[i].charAt(0).toUpperCase() + formattedType[i].slice(1);
     }
     const props = {
@@ -249,19 +242,16 @@ exports.processEvents = async (event) => {
       source: 'Close.io'
     }
 
-    const trackEvent = {
-      type: 'track',
+    Segment.track({
       event: formattedType.join(' ') + ' Created',
       userId: eventBody.event.data.created_by,
       properties: props
-    }
-
-    returnValue.events.push(trackEvent)
+    })
   }
 
   if (eventBody.event.action == 'updated') {
     let formattedType = eventBody.event.object_type.split('.')
-    for (let i=0; i < formattedType.length; i++){
+    for (let i = 0; i < formattedType.length; i++) {
       formattedType[i] = formattedType[i].charAt(0).toUpperCase() + formattedType[i].slice(1);
     }
     const props = {
@@ -274,19 +264,16 @@ exports.processEvents = async (event) => {
       source: 'Close.io'
     }
 
-    const trackEvent = {
-      type: 'track',
+    Segment.track({
       event: formattedType.join(' ') + ' Updated',
       userId: eventBody.event.data.created_by,
       properties: props
-    }
-
-    returnValue.events.push(trackEvent)
+    })
   }
 
   if (eventBody.event.action == 'deleted') {
     let formattedType = eventBody.event.object_type.split('.')
-    for (let i=0; i < formattedType.length; i++){
+    for (let i = 0; i < formattedType.length; i++) {
       formattedType[i] = formattedType[i].charAt(0).toUpperCase() + formattedType[i].slice(1);
     }
     const props = {
@@ -299,15 +286,10 @@ exports.processEvents = async (event) => {
       source: 'Close.io'
     }
 
-    const trackEvent = {
-      type: 'track',
+    Segment.track({
       event: formattedType.join(' ') + ' Deleted',
       userId: eventBody.event.data.created_by,
       properties: props
-    }
-
-    returnValue.events.push(trackEvent)
+    })
   }
-
-  return(returnValue)
 }

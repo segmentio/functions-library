@@ -14,27 +14,27 @@ const EVENT_TYPE_TAG = 'event'
 
 const METRIC_NAME = 'segment.messages'
 
-async function track(msg, { apiKey }) {
+async function onTrack(msg, { apiKey }) {
   return sendMetric(msg, apiKey)
 }
 
-async function identify(msg, { apiKey }) {
+async function onIdentify(msg, { apiKey }) {
   return sendMetric(msg, apiKey)
 }
 
-async function group(msg, { apiKey }) {
+async function onGroup(msg, { apiKey }) {
   return sendMetric(msg, apiKey)
 }
 
-async function page(msg, { apiKey }) {
+async function onPage(msg, { apiKey }) {
   return sendMetric(msg, apiKey)
 }
 
-async function alias(msg, { apiKey }) {
+async function onAlias(msg, { apiKey }) {
   return sendMetric(msg, apiKey)
 }
 
-async function screen(msg, { apiKey }) {
+async function onScreen(msg, { apiKey }) {
   return sendMetric(msg, apiKey)
 }
   

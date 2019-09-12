@@ -1,15 +1,8 @@
-exports.processEvents = async event => {
-  let eventBody = event.payload.body;
-  let eventHeaders = event.payload.headers;
-  let queryParameters = event.payload.queryParameters;
-  let returnValue = {
-    objects: [],
-    events: []
-  };
+async function onRequest(request, settings) {
+  let eventBody = request.json();
 
   if (eventBody.type == "charge.succeeded" && eventBody.data.object.customer) {
-    const chargeSucceeded = {
-      type: "track",
+    Segment.track({
       event: "Charge Succeeded",
       userId: eventBody.data.object.customer,
       properties: {
@@ -21,13 +14,11 @@ exports.processEvents = async event => {
       context: {
         source: "Stripe"
       }
-    };
-    returnValue.events.push(chargeSucceeded);
+    })
   }
 
   if (eventBody.type == "customer.created") {
-    const customerCreated = {
-      type: "track",
+    Segment.track({
       event: "Customer Created",
       userId: eventBody.data.object.id,
       properties: {
@@ -37,11 +28,10 @@ exports.processEvents = async event => {
       },
       context: {
         source: "stripe"
-      }
-    };
+      }  
+    })
 
-    const identify = {
-      type: "identify",
+    Segment.identify({
       userId: eventBody.data.object.id,
       properties: {
         createTime: eventBody.data.object.created,
@@ -51,13 +41,11 @@ exports.processEvents = async event => {
       context: {
         source: "Stripe"
       }
-    };
-    returnValue.events.push(customerCreated, identify);
+    })
   }
 
   if (eventBody.type == "customer.subscription.created") {
-    const subscriptionCreated = {
-      type: "track",
+    Segment.track({
       event: "Subscription Created",
       userId: eventBody.data.object.customer,
       properties: {
@@ -71,13 +59,11 @@ exports.processEvents = async event => {
       context: {
         source: "stripe"
       }
-    };
-    returnValue.events.push(subscriptionCreated);
+    })
   }
 
   if (eventBody.type == "customer.subscription.trial_will_end") {
-    const subscriptionCreated = {
-      type: "track",
+    Segment.track({
       event: "Trial Ending Soon",
       userId: eventBody.data.object.customer,
       properties: {
@@ -90,9 +76,6 @@ exports.processEvents = async event => {
       context: {
         source: "stripe"
       }
-    };
-    returnValue.events.push(subscriptionCreated);
+    })
   }
-
-  return returnValue;
-};
+}

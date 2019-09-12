@@ -2,7 +2,7 @@
 // Create a Slack app and webhook and update this endpoint
 const endpoint = "https://hooks.slack.com/services/REDACTED"
 
-async function track(event, settings) {
+async function onTrack(event, settings) {
   if (!event.email) {
     throw new InvalidEventPayload("email is required")
   }
@@ -32,22 +32,22 @@ async function track(event, settings) {
   return await res.text()
 }
 
-async function identify(event, settings) {
+async function onIdentify(event, settings) {
   throw new EventNotSupported(`${event.type} not supported`)
 }
 
-async function group(event, settings) {
+async function onGroup(event, settings) {
   throw new EventNotSupported(`${event.type} not supported`)
 }
 
-async function page(event, settings) {
+async function onPage(event, settings) {
   throw new EventNotSupported(`${event.type} not supported`)
 }
 
-async function alias(event, settings) {
+async function onAlias(event, settings) {
   throw new EventNotSupported(`${event.type} not supported`)
 }
 
-async function screen(event, settings) {
+async function onScreen(event, settings) {
   throw new EventNotSupported(`${event.type} not supported`)
 }

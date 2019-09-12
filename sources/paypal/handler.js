@@ -1,17 +1,17 @@
-// Supported Objects: order, plan, checkout-order
-// Supported Events: Order Completed
+/**
+* Paypal Supported Objects: order, plan, checkout-order
+* Paypal Supported Events: Order Completed
+*
+* Please do not delete [used for Intellisense]
+* @param {ServerRequest} request The incoming webhook request
+* @param {Object.<string, any>} settings Custom settings
+* @return void
+*/
+async function onRequest(request, settings) {
+  let eventBody = request.json()
 
-exports.processEvents = async (event) => {
-  let eventBody = event.payload.body;
-  let eventHeaders = event.payload.headers;
-  let queryParameters = event.payload.queryParameters;
-  let returnValue = {
-    objects: [],
-    events: []
-  }
-  
   if (eventBody.resource_type == 'order') {
-  	const orderObj = {
+    Segment.set({
       collection: eventBody.resource_type,
       id: eventBody.resource.id,
       properties: {
@@ -28,13 +28,11 @@ exports.processEvents = async (event) => {
         webhookId: eventBody.id, // id of the incoming webhook
         source: 'Paypal'
       }
-    }
-
-  	returnValue.objects.push(orderObj)
+    })
   }
 
   if (eventBody.resource_type == 'plan') {
-    const planObj = {
+    Segment.set({
       collection: eventBody.resource_type,
       id: eventBody.resource.id,
       properties: {
@@ -47,9 +45,7 @@ exports.processEvents = async (event) => {
         webhookId: eventBody.id, // id of the incoming webhook
         source: 'Paypal'
       }
-    }
-
-  	returnValue.objects.push(planObj)
+    })
   }
 
   if (eventBody.resource_type == 'checkout-order') {
@@ -63,22 +59,16 @@ exports.processEvents = async (event) => {
       source: 'Paypal'
     }
 
-    const checkoutObj = {
+    Segment.set({
       collection: eventBody.resource_type,
       id: eventBody.resource.id,
       properties: props
-    }
+    })
 
-    const orderCompleted = {
-      type: 'track',
+    Segment.track({
       event: 'Order Completed',
       userId: eventBody.resource.payer.payer_id,
       properties: props
-    }
-
-  	returnValue.objects.push(checkoutObj)
-    returnValue.events.push(orderCompleted)
+    })
   }
-
-  return(returnValue)
 }
