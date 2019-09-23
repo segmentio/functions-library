@@ -32,7 +32,7 @@ async function onIdentify(event, settings) {
   // Map to Sendgrid Contact.
   const contact = {
     address_line_1: street,
-    // address_line_2
+    // address_line_2 - Not in use.
     city,
     postal_code: postalCode,
     state_province_region: state,
@@ -41,12 +41,12 @@ async function onIdentify(event, settings) {
     first_name: firstName,
     last_name: lastName,
     id,
-    // custom_fields
+    // custom_fields - Not in use.
   };
 
   // Generate request.
   const requestBody = {
-    // list_ids,
+    // list_ids - Not in use.
     contacts: [contact],
   };
   const writeKey = settings.apiKey;
