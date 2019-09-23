@@ -5,139 +5,63 @@
 * @return void
 */
 async function onRequest(request, settings) {
-  return transform(request.json());
-}
+  const {
+    current,
+    previous,
+    meta: { object: objectType, id, action }
+  } = request.json();
 
-function transform(event) {
-  let eventData = event;
-  let eventObject = eventData.current;
+  const supportedObjects = ["deal", "organization", "note", "person"];
+  if (!supportedObjects.some(type => type === objectType)) {
+    console.log("unsupported webhook type");
+    return;
+  }
 
-  if (eventData.meta.object == 'deal') {
-    createDealObject(eventData);
-  } else if (eventData.meta.object == 'organization') {
-    createOrganizationObject(eventData);
-  } else if (eventData.meta.object == 'note') {
-    createNoteObject(eventData);
-  } else if (eventData.meta.object == 'person') {
-    createPersonObject(eventData);
+  const sourceContext = () => ({ integration: { name: "PipeDrive [Custom]" } });
+
+  let properties;
+  if (action === "deleted") {
+    // overwrite all the pre-existing keys with empty values
+    properties = _.mapValues(flatten(previous), _ => null);
   } else {
-    console.log("Unsupported Event: " + eventData.meta.object);
+    properties = flatten(current);
   }
+    
+  // upsert
+  Segment.set({
+    collection: `${objectType}s`,
+    id,
+    properties,
+    context: sourceContext()
+  });
 
-  // Send an event when a deal is added to
-  // trigger a workflow downstream
-  if (eventData.event == 'added.deal') {
-    Segment.track({
-      event: 'Deal Added',
-      userId: "" + eventObject.user_id,
-      properties: {
-        name: eventObject.title,
-        value: eventObject.weighted_value,
-        probability: eventObject.deal_probability,
-        status: eventObject.status,
-        currency: eventObject.currency
+  const event = [objectType, action]
+    .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+    .join(" ");
+
+  // send event
+  Segment.track({
+    event,
+    userId: current.user_id,
+    properties: {
+      [`${objectType}_id`]: current.id,
+      ...(action === "deleted" ? {} : properties)
+    },
+    context: sourceContext()
+  });
+}
+
+function flatten(input) {
+  const result = {};
+  function recur(obj, prefix = "") {
+    Object.entries(obj).forEach(([key, value]) => {
+      if (_.isObject(value)) {
+        recur(value, `${prefix}${key}_`);
+      } else {
+        result[`${prefix}${key}`] = value;
       }
-    })
+    });
   }
-}
-
-function createDealObject(eventData) {
-  let currentData = eventData.current;
-
-  Segment.set({
-    collection: eventData.meta.object + "s",
-    id: "" + eventData.meta.id,
-    properties: {
-      active: currentData.active,
-      timeAdded: currentData.add_time,
-      timeClosed: currentData.close_time,
-      creatorUserId: currentData.creator_user_id,
-      currency: currentData.currency,
-      deleted: currentData.deleted,
-      formattedValue: currentData.formatted_value,
-      ownerName: currentData.owner_name,
-      organizationId: currentData.org_id,
-      organizationName: currentData.org_name,
-      personId: currentData.person_id,
-      personName: currentData.person_name,
-      pipelineId: currentData.pipeline_id,
-      stageId: currentData.stageId,
-      status: currentData.status,
-      title: currentData.title,
-      value: currentData.value,
-      wonTime: currentData.won_time
-    }
-  })
-}
-
-function createOrganizationObject(eventData) {
-  let currentData = eventData.current;
-
-  Segment.set({
-    collection: eventData.meta.object + "s",
-    id: "" + eventData.meta.id,
-    properties: {
-      active: currentData.active_flag,
-      timeAdded: currentData.add_time,
-      email: currentData.cc_email,
-      closedDealCount: currentData.closed_deals_count,
-      categoryId: currentData.category_id,
-      countryCode: currentData.country_code,
-      lastActivityDate: currentData.last_activity_date,
-      lostDealsCount: currentData.lost_deals_count,
-      name: currentData.name,
-      nextActivityDate: currentData.next_activity_date,
-      nextActivityTime: currentData.next_activity_time,
-      openDealsCount: currentData.open_deals_count,
-      ownerId: currentData.owner_id,
-      ownerName: currentData.owner_name,
-      updatedTime: currentData.update_time,
-      wonDealsCount: currentData.won_deals_count
-    }
-  })
-}
-
-function createNoteObject(eventData) {
-  let currentData = eventData.current;
-
-  Segment.set({
-    collection: eventData.meta.object + "s",
-    id: "" + eventData.meta.id,
-    properties: {
-      active: currentData.active_flag,
-      timeAdded: currentData.add_time,
-      content: currentData.content,
-      dealTitle: currentData.deal.title,
-      dealId: currentData.deal_id,
-      organizationId: currentData.org_id,
-      organization_name: currentData.organization.name,
-      personId: currentData.person_id,
-      personName: currentData.person.name
-    }
-  })
-}
-
-function createPersonObject(eventData) {
-  let currentData = eventData.current;
-
-  Segment.set({
-    collection: eventData.meta.object + "s",
-    id: "" + eventData.meta.id,
-    properties: {
-      active: currentData.active_flag,
-      timeAdded: currentData.add_time,
-      email: currentData.cc_email,
-      firstName: currentData.first_name,
-      lastName: currentData.last_name,
-      lastActivityDate: currentData.last_activity_date,
-      name: currentData.name,
-      openDealsCount: currentData.open_deals_count,
-      organizationId: currentData.org_id,
-      organizationName: currentData.org_name,
-      ownerId: currentData.owner_id,
-      ownerName: currentData.owner_name,
-      updatedTime: currentData.updated_time,
-      wonDealsCount: currentData.won_deals_count
-    }
-  })
+  recur(input);
+  return result;
 }
