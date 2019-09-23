@@ -37,7 +37,7 @@ async function onIdentify(event, settings) {
     postal_code: postalCode,
     state_province_region: state,
     country,
-    email,
+    email: email || event.email, // Fall back to `event.email`.
     first_name: firstName,
     last_name: lastName,
     id,
