@@ -8,7 +8,7 @@ async function onTrack(event, settings) {
 }
 
 /**
- * onIdentify takes an Identify event, removes PII, enriches it, then POSTs it
+ * onIdentify takes an Identify event and upserts Contact to Sendgrid.
  *
  * @param {SpecIdentify} event The identify event
  * @param {Object.<string, any>} settings Custom settings
