@@ -60,5 +60,6 @@ async function onIdentify(event, settings) {
   });
 
   // Return response.
+  // Successful response should include a value in `body.job_id`.
   return res.json();
 }
