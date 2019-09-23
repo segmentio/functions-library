@@ -1,12 +1,12 @@
-# Segment Functions Library
+# Functions Library
 
-This repository contains a set of community-generated functions, to serve
-as examples to base your own functions upon. If you're building out a new
-integration, or a custom piece of code that you want Segment to run, use
+This repository contains a set of community-generated Function templates to serve
+as examples to base your own Segment-hosted Functions upon. If you're building out a new
+integration or a custom piece of code that you want Segment to run use
 this repo as the set of examples.
 
-
 ## Sources
+[docs] (https://segment.com/docs/sources/custom/)
 
 - [Adyen](./sources/adyen) - Subscribes to Adyen webhooks
 - [BigCommerce](./sources/bigcommerce) - Subscribes to BigCommerce webhooks
@@ -27,10 +27,16 @@ this repo as the set of examples.
 
 
 ## Destinations
+[docs](https://segment.com/docs/destinations/custom-destinations/)
 
 - [Airtable](./destinations/airtable) - Capture user feedback and send through to your Airtable
+- [Datadog](./destinations/datadog) - Sends a metric to datadog with high level message/event type as tags
 - [Follow Along](./destinations/follow-along) - Generates Fullstory links and sends to Slack
+- [ipstack] (./destinations/ipstack) - Forwards events to IPStack and writes back enriched data to another Segment source.
+- [Lob] (./destinations/lob) - Send physical mail at scale using Lob based on events that you send.
 - [Requestbin](./destinations/requestbin) - Sends events to RequestBin for introspection
 - [Slack](./destinations/slack) - Adds a Gravatar icon to events with an email and sends messages to Slack
 - [Zendesk](./destinations/zendesk) - Create new Zendesk tickets triggered by events that you send
-- [Datadog](./destinations/datadog) - Sends a metric to datadog with high level message/event type as tags
+
+## Resources
+[Request access] (https://app.segment.com/goto-my-workspace/build/catalog) to build Functions on Segment 
