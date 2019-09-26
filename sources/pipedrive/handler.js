@@ -12,6 +12,11 @@ function transform(event) {
   let eventData = event;
   let eventObject = eventData.current;
 
+  if (eventObject == null) {
+    console.log("No Event: " + eventData.meta.object);
+    return
+  }
+
   if (eventData.meta.object == 'deal') {
     createDealObject(eventData);
   } else if (eventData.meta.object == 'organization') {

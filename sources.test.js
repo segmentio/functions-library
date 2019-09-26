@@ -23,6 +23,6 @@ describe.each(sources)("%s", (source) => {
     test.each(payloads)("%s handler", async (example, payload) => {
         process.chdir(dir)
         const messages = await processSourcePayload(payload)
-        expect(messages.events.length + messages.objects.length).toBeGreaterThan(0)
+        expect(messages.events.length + messages.objects.length).toBeGreaterThanOrEqual(0)
     })    
 })
