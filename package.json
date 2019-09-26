@@ -1,0 +1,33 @@
+{
+  "name": "functions-library",
+  "version": "1.0.0",
+  "description": "This repository contains a set of community-generated functions, to serve as examples to base your own functions upon. If you're building out a new integration, or a custom piece of code that you want Segment to run, use this repo as the set of examples.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/segmentio/functions-library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/segmentio/functions-library/issues"
+  },
+  "homepage": "https://github.com/segmentio/functions-library#readme",
+  "dependencies": {
+    "atob": "2.1.2",
+    "aws-sdk": "2.488.0",
+    "btoa": "1.2.1",
+    "form-data": "2.4.0",
+    "lodash": "4.17.15",
+    "node-fetch": "2.6.0",
+    "oauth": "0.9.15",
+    "xml": "1.0.1"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
