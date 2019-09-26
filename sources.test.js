@@ -3,12 +3,7 @@ const process = require('process')
 const { processSourcePayload } = require('./buildpack/boreal')
 
 const cwd = process.cwd()
-
-const sources = [
-    "bigcommerce",
-    "close-io",
-    "paypal",
-]
+const sources = fs.readdirSync(`${cwd}/sources`)
 
 describe.each(sources)("%s", (source) => {
     let dir = `${cwd}/sources/${source}`
