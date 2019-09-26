@@ -16,7 +16,11 @@ describe.each(sources)("%s", (source) => {
         payloads.push([example, payload])
     }
 
-    test.each(payloads)("%s", async (example, payload) => {
+    test.each(payloads)("%s payload", async (example, payload) => {
+        expect(payload.payload.body).toBeDefined()
+    })
+
+    test.each(payloads)("%s handler", async (example, payload) => {
         process.chdir(dir)
         const messages = await processSourcePayload(payload)
         expect(messages.events.length + messages.objects.length).toBeGreaterThan(0)
