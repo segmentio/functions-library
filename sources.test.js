@@ -4,6 +4,7 @@ const { processSourcePayload } = require('./buildpack/boreal')
 
 const cwd = process.cwd()
 const sources = fs.readdirSync(`${cwd}/sources`)
+const skips = ["leanplum"]
 
 describe.each(sources)("%s", (source) => {
     let dir = `${cwd}/sources/${source}`
@@ -16,11 +17,16 @@ describe.each(sources)("%s", (source) => {
         payloads.push([example, payload])
     }
 
-    test.each(payloads)("%s payload", async (example, payload) => {
+    let tester = test
+    if (skips.indexOf(source) > -1) {
+        tester = xtest
+    }
+
+    tester.each(payloads)("%s payload", async (example, payload) => {
         expect(payload.payload.body).toBeDefined()
     })
 
-    test.each(payloads)("%s handler", async (example, payload) => {
+    tester.each(payloads)("%s handler", async (example, payload) => {
         process.chdir(dir)
         const messages = await processSourcePayload(payload)
         expect(messages.events.length + messages.objects.length).toBeGreaterThanOrEqual(0)
