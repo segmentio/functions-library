@@ -2,7 +2,10 @@ const endpoint = "http://api.ipstack.com/"
 
 // enriches an identify call and writes it back to a separate source in Segment
 async function onIdentify(event, settings) {
-  
+  if (!settings.sourceWriteKey) {
+    throw new ValidationError("Source write key is required")
+  }
+
   // the write key of the Segment source you want to send geo data to
   const writeKey = btoa(settings.sourceWriteKey)
 

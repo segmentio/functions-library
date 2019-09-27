@@ -2,9 +2,9 @@ async function onTrack(event, settings) {
   const endpoint = `https://api.airtable.com/v0/${settings.appId}/General%20User%20Survey`
   if (event.event = "Feedback Added") {
     
-    let favString = event.properties.favoriteFeatures;
+    let favString = event.properties.favoriteFeatures || "";
     let favFeaturesArray = favString.split(',');
-    let leastFavString = event.properties.leastFavoriteFeatures;
+    let leastFavString = event.properties.leastFavoriteFeatures || "";
     let leastFavFeaturesArray = leastFavString.split(',');
     
     let airTableEvent = {
