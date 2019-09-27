@@ -1,4 +1,4 @@
-async function track(event, settings) {
+async function onTrack(event, settings) {
   const endpoint = `https://api.airtable.com/v0/${settings.appId}/General%20User%20Survey`
   if (event.event = "Feedback Added") {
     
@@ -33,29 +33,4 @@ async function track(event, settings) {
     const res = await fetch(endpoint, init)
     return res.json()
   }
-}
-
-// Identify is not supported
-async function identify(event, settings) {
-  throw new EventNotSupported("The Identify method is not supported.")
-}
-
-// Page is not supported
-async function page(event, settings) {
-  throw new EventNotSupported("The Page method is not supported.")
-}
-
-// Group is not supported
-async function page(event, settings) {
-  throw new EventNotSupported("The Group method is not supported.")
-}
-
-// Alias is not supported
-async function alias(event, settings) {
-  throw new EventNotSupported("The Alias method is not supported.")
-}
-
-// Screen is not supported
-async function screen(event, settings) {
-  throw new EventNotSupported("The Screen method is not supported.")
 }

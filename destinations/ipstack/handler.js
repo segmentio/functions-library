@@ -1,7 +1,7 @@
 const endpoint = "http://api.ipstack.com/"
 
 // enriches an identify call and writes it back to a separate source in Segment
-async function identify(event, settings) {
+async function onIdentify(event, settings) {
   
   // the write key of the Segment source you want to send geo data to
   const writeKey = btoa(settings.sourceWriteKey)
@@ -30,24 +30,4 @@ async function identify(event, settings) {
   else {
     throw new EventNotSupported(`${event.type} missing IP or userId`)
   }
-}
-
-async function group(event, settings) {
-  throw new EventNotSupported(`${event.type} not supported`)
-}
-
-async function page(event, settings) {
-  throw new EventNotSupported(`${event.type} not supported`)
-}
-
-async function alias(event, settings) {
-  throw new EventNotSupported(`${event.type} not supported`)
-}
-
-async function screen(event, settings) {
-  throw new EventNotSupported(`${event.type} not supported`)
-}
-
-async function track(event, settings) {
-  throw new EventNotSupported(`${event.type} not supported`)
 }
