@@ -34,3 +34,11 @@ this repo as the set of examples.
 - [Slack](./destinations/slack) - Adds a Gravatar icon to events with an email and sends messages to Slack
 - [Zendesk](./destinations/zendesk) - Create new Zendesk tickets triggered by events that you send
 - [Datadog](./destinations/datadog) - Sends a metric to datadog with high level message/event type as tags
+
+## Development
+
+Run tests with:
+
+```
+yarn && yarn test
+```
