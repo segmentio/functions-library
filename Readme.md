@@ -5,6 +5,7 @@ as examples to base your own functions upon. If you're building out a new
 integration, or a custom piece of code that you want Segment to run, use
 this repo as the set of examples.
 
+![](https://github.com/segmentio/functions-library/workflows/CI/badge.svg)
 
 ## Sources
 
