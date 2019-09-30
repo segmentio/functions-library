@@ -31,23 +31,3 @@ async function onTrack(event, settings) {
 
   return await res.text()
 }
-
-async function onIdentify(event, settings) {
-  throw new EventNotSupported(`${event.type} not supported`)
-}
-
-async function onGroup(event, settings) {
-  throw new EventNotSupported(`${event.type} not supported`)
-}
-
-async function onPage(event, settings) {
-  throw new EventNotSupported(`${event.type} not supported`)
-}
-
-async function onAlias(event, settings) {
-  throw new EventNotSupported(`${event.type} not supported`)
-}
-
-async function onScreen(event, settings) {
-  throw new EventNotSupported(`${event.type} not supported`)
-}

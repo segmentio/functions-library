@@ -1,24 +1,19 @@
-exports.processEvents = async (event) => {
-  const body = JSON.parse(event.payload.body.payload)
-  const { headers, queryParams } = event.payload
+/**
+* Please do not delete [used for Intellisense]
+* @param {ServerRequest} request The incoming webhook request
+* @param {Object.<string, any>} settings Custom settings
+* @return void
+*/
+async function onRequest(request, settings) {
+  const body = request.json()
+  var evt = request.headers.get("X-Github-Event")
 
-  let evt = `${headers['X-Github-Event']}`
   if (body.action) {
     evt += ` ${body.action}`
   }
 
-  return ({
-    events: [
-      {
-        type: 'track',
-        event: evt,
-        userId: `${body.sender.id}`,
-        properties: {
-          body,
-          headers,
-          queryParams,
-        },
-      }
-    ]
+  Segment.track({
+    event: evt,
+    userId: `${body.sender.id}`
   })
 }

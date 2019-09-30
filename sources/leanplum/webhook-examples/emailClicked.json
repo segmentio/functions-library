@@ -1,14 +1,16 @@
-"payload": {
-  "headers": {},
-  "body": {},
-  "queryParams": {
-    "channel": "Email",
-    "device_id": "",
-    "event": "Click",
-    "message_id": "6184400932175872",
-    "parameters": "{\"index\":1,\"url\":\"https:\\/\\/segment.com\"}",
-    "template_name": "",
-    "time": "1557338008000",
-    "user_id": "Igor+fg2@seg.com"
+{
+  "payload": {
+    "headers": {},
+    "body": {},
+    "queryParams": {
+      "channel": "Email",
+      "device_id": "",
+      "event": "Click",
+      "message_id": "6184400932175872",
+      "parameters": "{\"index\":1,\"url\":\"https:\\/\\/segment.com\"}",
+      "template_name": "",
+      "time": "1557338008000",
+      "user_id": "Igor+fg2@seg.com"
+    }
   }
 }

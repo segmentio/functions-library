@@ -1,20 +1,24 @@
 {
-  "live": "false",
-  "notificationItems": [
-    {
-      "NotificationRequestItem": {
-        "amount": {
-          "currency": "EUR",
-          "value": 1010
-        },
-        "eventCode": "ORDER_OPENED",
-        "eventDate": "2019-06-27T19:10:58+02:00",
-        "merchantAccountCode": "Diggory01COM",
-        "merchantReference": "testMerchantRef1",
-        "pspReference": "test_ORDER_OPENED",
-        "reason": "",
-        "success": "true"
-      }
-    }
-  ]
+  "payload": {
+    "body": {
+      "live": "false",
+      "notificationItems": [
+        {
+          "NotificationRequestItem": {
+            "amount": {
+              "currency": "EUR",
+              "value": 1010
+            },
+            "eventCode": "ORDER_OPENED",
+            "eventDate": "2019-06-27T19:10:58+02:00",
+            "merchantAccountCode": "Diggory01COM",
+            "merchantReference": "testMerchantRef1",
+            "pspReference": "test_ORDER_OPENED",
+            "reason": "",
+            "success": "true"
+          }
+        }
+      ]
+    }    
+  }
 }

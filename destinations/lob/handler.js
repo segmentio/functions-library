@@ -9,26 +9,6 @@ async function onTrack(event, settings) {
   }
 }
 
-async function onIdentify(event, settings) {
-  throw new EventNotSupported("identify not supported")
-}
-
-async function onGroup(event, settings) {
-  throw new EventNotSupported("group not supported")
-}
-
-async function onPage(event, settings) {
-  throw new EventNotSupported("page not supported")
-}
-
-async function onAlias(event, settings) {
-  throw new EventNotSupported("alias not supported")
-}
-
-async function onScreen(event, settings) {
-  throw new EventNotSupported("screen not supported")
-}
-
 // Helper function to call the Lob API
 async function callLobApi(name, address, settings) {
   let body = {

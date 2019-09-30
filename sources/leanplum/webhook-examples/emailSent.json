@@ -1,147 +1,16 @@
 {
-  "body": null,
-  "headers": {
-    "Accept": "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2",
-    "Accept-Encoding": "gzip",
-    "CloudFront-Forwarded-Proto": "https",
-    "CloudFront-Is-Desktop-Viewer": "true",
-    "CloudFront-Is-Mobile-Viewer": "false",
-    "CloudFront-Is-SmartTV-Viewer": "false",
-    "CloudFront-Is-Tablet-Viewer": "false",
-    "CloudFront-Viewer-Country": "US",
-    "Content-Type": "application/json; charset=utf-8",
-    "Host": "py5xsxnskj.execute-api.us-east-1.amazonaws.com",
-    "User-Agent": "Leanplum-Webhook",
-    "Via": "1.1 3765ff5ab7256fdbff87302f60a6d801.cloudfront.net (CloudFront)",
-    "X-Amz-Cf-Id": "fV7EUALx8qktXX6exADlHbZzGocUuSwTaC3XBTA12XasJhj6f7di8Q==",
-    "X-Amzn-Trace-Id": "Root=1-5ccc7ac5-0f9d4fac66f24eecf8757a78",
-    "X-Forwarded-For": "107.178.200.200, 70.132.57.156",
-    "X-Forwarded-Port": "443",
-    "X-Forwarded-Proto": "https"
-  },
-  "httpMethod": "POST",
-  "isBase64Encoded": false,
-  "multiValueHeaders": {
-    "Accept": [
-      "text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"
-    ],
-    "Accept-Encoding": [
-      "gzip"
-    ],
-    "CloudFront-Forwarded-Proto": [
-      "https"
-    ],
-    "CloudFront-Is-Desktop-Viewer": [
-      "true"
-    ],
-    "CloudFront-Is-Mobile-Viewer": [
-      "false"
-    ],
-    "CloudFront-Is-SmartTV-Viewer": [
-      "false"
-    ],
-    "CloudFront-Is-Tablet-Viewer": [
-      "false"
-    ],
-    "CloudFront-Viewer-Country": [
-      "US"
-    ],
-    "Content-Type": [
-      "application/json; charset=utf-8"
-    ],
-    "Host": [
-      "py5xsxnskj.execute-api.us-east-1.amazonaws.com"
-    ],
-    "User-Agent": [
-      "Leanplum-Webhook"
-    ],
-    "Via": [
-      "1.1 3765ff5ab7256fdbff87302f60a6d801.cloudfront.net (CloudFront)"
-    ],
-    "X-Amz-Cf-Id": [
-      "fV7EUALx8qktXX6exADlHbZzGocUuSwTaC3XBTA12XasJhj6f7di8Q=="
-    ],
-    "X-Amzn-Trace-Id": [
-      "Root=1-5ccc7ac5-0f9d4fac66f24eecf8757a78"
-    ],
-    "X-Forwarded-For": [
-      "107.178.200.200, 70.132.57.156"
-    ],
-    "X-Forwarded-Port": [
-      "443"
-    ],
-    "X-Forwarded-Proto": [
-      "https"
-    ]
-  },
-  "multiValueQueryStringParameters": {
-    "channel": [
-      "Email"
-    ],
-    "device_id": [
-      "00284B13-ADAA-4FA0-AB01-1005B1B0802C"
-    ],
-    "event": [
-      "Send"
-    ],
-    "message_id": [
-      "6184400932175872"
-    ],
-    "parameters": [
-      "{}"
-    ],
-    "template_name": [
-      ""
-    ],
-    "time": [
-      "1556904645032"
-    ],
-    "user_id": [
-      "Igor+fg2@segment.com"
-    ]
-  },
-  "path": "/eventTransformer",
-  "pathParameters": null,
-  "queryStringParameters": {
-    "channel": "Email",
-    "device_id": "00284B13-ADAA-4FA0-AB01-1005B1B0802C",
-    "event": "Send",
-    "message_id": "6184400932175872",
-    "parameters": "{}",
-    "template_name": "",
-    "time": "1556904645032",
-    "user_id": "Igor+fg2@segment.com"
-  },
-  "requestContext": {
-    "accountId": "058449100246",
-    "apiId": "py5xsxnskj",
-    "domainName": "py5xsxnskj.execute-api.us-east-1.amazonaws.com",
-    "domainPrefix": "py5xsxnskj",
-    "extendedRequestId": "ZHge2G_DIAMF0Ig=",
-    "httpMethod": "POST",
-    "identity": {
-      "accessKey": null,
-      "accountId": null,
-      "caller": null,
-      "cognitoAuthenticationProvider": null,
-      "cognitoAuthenticationType": null,
-      "cognitoIdentityId": null,
-      "cognitoIdentityPoolId": null,
-      "principalOrgId": null,
-      "sourceIp": "107.178.200.200",
-      "user": null,
-      "userAgent": "Leanplum-Webhook",
-      "userArn": null
-    },
-    "path": "/dev/eventTransformer",
-    "protocol": "HTTP/1.1",
-    "requestId": "2ee93442-6dc9-11e9-8fa1-01e8d418be31",
-    "requestTime": "03/May/2019:17:30:45 +0000",
-    "requestTimeEpoch": 1556904645440,
-    "resourceId": "k8gdhd",
-    "resourcePath": "/eventTransformer",
-    "stage": "dev"
-  },
-  "resource": "/eventTransformer",
-  "stageVariables": null
-}]
+  "payload": {
+    "headers": {},
+    "body": {},
+    "queryParams": {
+      "channel": "Email",
+      "device_id": "00284B13-ADAA-4FA0-AB01-1005B1B0802C",
+      "event": "Send",
+      "message_id": "6184400932175872",
+      "parameters": "{}",
+      "template_name": "",
+      "time": "1556904645032",
+      "user_id": "Igor+fg2@segment.com"
+    }
+  }
+}

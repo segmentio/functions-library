@@ -1,18 +1,18 @@
-// 1. Access your event body, headers and query parameters through the event object
-// 2. Transform the event into Segment Tracking Events or Objects by returning an object with the appropriate keys
-
-exports.processEvents = async (event) => {
-  let eventBody = event.payload.body;
-  let eventHeaders = event.payload.headers;
-  let queryParameters = event.payload.queryParameters;
+/**
+* Please do not delete [used for Intellisense]
+* @param {ServerRequest} request The incoming webhook request
+* @param {Object.<string, any>} settings Custom settings
+* @return void
+*/
+async function onRequest(request, settings) {
+  let eventBody = request.json()
 
   let returnValue = {
     objects: [],
     events: []
   }
-  let payload = JSON.parse(eventBody.payload);
+  let payload = eventBody.payload
   let eventObj = {
-    type: 'track',
     properties: { ...payload, source: 'Talkable' }
   }
 
@@ -65,8 +65,5 @@ exports.processEvents = async (event) => {
     collection: 'users'
   }]}
 
-  returnValue.events.push(eventObj)
-
-  // Return the Javascript object with a key of events, objects or both
-  return(returnValue)
+  Segment.track(eventObj)
 }

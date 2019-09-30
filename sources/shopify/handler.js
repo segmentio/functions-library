@@ -1,23 +1,22 @@
-exports.processEvents = async (event) => {
-  let eventBody = event.payload.body;
-  let eventHeaders = event.payload.headers;
-  let queryParameters = event.payload.queryParameters;
+/**
+* Please do not delete [used for Intellisense]
+* @param {ServerRequest} request The incoming webhook request
+* @param {Object.<string, any>} settings Custom settings
+* @return void
+*/
+async function onRequest(request, settings) {
+// exports.processEvents = async (event) => {
+  let eventBody = request.json();
 
   const sp = await payload(eventBody)
   const eventName = await setEventName(eventBody)
   const order = eventBody
 
-  let returnValue = {
-    events: [
-    {
-        type: 'track',
-        event: eventName,
-        userId: String(order.customer.id),
-        properties: sp
-    }]
-  }
-
-  return(returnValue)
+  Segment.track({
+    event: eventName,
+    userId: String(order.customer.id),
+    properties: sp
+  })
 }
 
 //---------------------------------------------------------------------
