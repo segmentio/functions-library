@@ -8,7 +8,7 @@ async function onRequest(request, settings) {
   const {
     current,
     previous,
-    meta: { object: objectType, id, action }
+    meta: { object: objectType, id, action, webhook_id }
   } = request.json();
 
   const supportedObjects = ["deal", "organization", "note", "person"];
@@ -47,7 +47,8 @@ async function onRequest(request, settings) {
       [`${objectType}_id`]: current.id,
       ...(action === "deleted" ? {} : properties)
     },
-    context: sourceContext()
+    context: sourceContext(),
+    messageId: `pd_${webhook_id}`
   });
 }
 
