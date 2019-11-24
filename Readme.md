@@ -10,6 +10,7 @@ this repo as the set of examples.
 ## Sources
 
 - [Adyen](./sources/adyen) - Subscribes to Adyen webhooks
+- [Audit Forwarding](./sources/audit-forwarding) - Enhances Segment Audit Forwarding
 - [Close.io](./sources/close-io) - Subscribes to Close.io webhooks
 - [Formstack](./sources/formstack) - Subscribes to Formstack webhooks
 - [Github](./sources/github) - Subscribes to Github webhooks
