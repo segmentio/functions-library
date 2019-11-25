@@ -682,7 +682,7 @@ Permission Check
 *timestamp:* {{timestamp}}
 ```
 
-## Want to Block Permission Check?
+## Want to Block Permission Check Events?
 
 Uncomment the following code that is already in the Custom Source Function code.
 ```
