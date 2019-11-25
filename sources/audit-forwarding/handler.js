@@ -20,6 +20,11 @@ async function onRequest(request, settings) {
   const usersURL = `https://platform.segmentapis.com/v1beta/workspaces/${settings.workspaceSlug}/users`;
   const userId = requestBody.properties.details.subject ? requestBody.properties.details.subject.split('/')[1] : requestBody.userId;
 
+  // Uncomment the following 3 lines in order to block "Permission Check" events.
+  // if (requestBody.properties.type === 'Permission Check') {
+  //   return;
+  // }
+
   if (userId === "__system__") {
     Segment.track({
       userId,
