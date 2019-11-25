@@ -489,12 +489,6 @@ Audit events do not function the same as 'regular' events. Thus you cannot forwa
     <td>Tracking Plan Deleted</td>
   </tr>
   <tr>
-    <td>Source Connected To Tracking Plan</td>
-  </tr>
-  <tr>
-    <td>Source Disconnected From Tracking Plan</td>
-  </tr>
-  <tr>
     <td>Tracking Plan Inferred</td>
   </tr>
   <tr>
@@ -657,7 +651,6 @@ New Event Allowed
 ```
 
 ## Permission Check Event
-***NOTE: This event is not enabled by default. To enable change the 'allowPermissionCheck' setting to `true` in your Sounce Function Editor***
 <table>
   <tr>
     <th>Events</th>
@@ -687,4 +680,13 @@ Permission Check
 *subject_id:* {{properties.details.subject_id}} \n 
 *subject_type:* {{properties.details.subject_type}} \n 
 *timestamp:* {{timestamp}}
+```
+
+## Want to Block Permission Check?
+
+Uncomment the following code that is already in the Custom Source Function code.
+```
+if (requestBody.properties.type === 'Permission Check') {
+  return;
+}
 ```
