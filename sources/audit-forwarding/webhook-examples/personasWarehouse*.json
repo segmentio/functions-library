@@ -1,0 +1,54 @@
+{
+    "payload": {
+      "body": {
+        "channel": "server",
+        "context": {
+          "library": {
+            "name": "unknown",
+            "version": "unknown"
+          }
+        },
+        "event": "Audit",
+        "integrations": {},
+        "messageId": "api-1U4n26Xe9IxnDgb2exPSXofpC9M",
+        "originalTimestamp": "2019-11-24T19:42:03.977Z",
+        "properties": {
+          "details": {
+            "resource_id": "spaces/default/warehouse-sources/whs_1U34CpJKr1BiqO933sY0y2Y4wT7",
+            "resource_type": "personas_warehouse_source",
+            "subject": "users/MNxxtIRCbe",
+            "target": "Postgres Warehouse"
+          },
+          "type": "Personas Warehouse Source Modified",
+          "workspace_id": "VWDxzzIpI5"
+        },
+        "receivedAt": "2019-11-24T19:42:04.145Z",
+        "replay": true,
+        "timestamp": "2019-11-24T19:42:03.977Z",
+        "type": "track",
+        "userId": "MNxxtIRCbe"
+      },
+      "headers": {
+        "Accept-Encoding": [
+          "gzip, deflate",
+          "identity"
+        ],
+        "Content-Length": [
+          "621"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Date": [
+          "Sun, 24 Nov 2019 19:42:41 GMT"
+        ],
+        "User-Agent": [
+          "Segment.io/1.0"
+        ],
+        "X-Request-Id": [
+          "f059c065-f166-41bb-9395-415f781d1f5e"
+        ]
+      },
+      "queryParameters": {}
+    }
+}
