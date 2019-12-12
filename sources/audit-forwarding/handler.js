@@ -14,7 +14,7 @@ async function onRequest(request, settings) {
   
   const requestBody = request.json();
   const usersURL = `https://platform.segmentapis.com/v1beta/workspaces/${settings.workspaceSlug}/users`;
-  const userId = requestBody.properties.details.subject ? requestBody.properties.details.subject.split('/')[1] : requestBody.userId;
+  const userId = requestBody.properties.details.subject && requestBody.properties.details.subject.indexOf('users/') > -1 ? requestBody.properties.details.subject.split('/')[1] : requestBody.userId;
 
   // Uncomment the following 3 lines in order to block "Permission Check" events.
   // if (requestBody.properties.type === 'Permission Check') {
@@ -50,7 +50,7 @@ async function onRequest(request, settings) {
   }))
   .catch(err => Segment.track({
     userId,
-    event:'Error',
+    event:'Error: User Email Not Found',
     properties: err
   }));;
 }
