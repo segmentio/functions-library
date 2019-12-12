@@ -5,10 +5,6 @@
  * @return void
  */
 async function onRequest(request, settings) {
-  // Source Tests do not seems to take settings into account
-  // As a workaraound I am exposing an authization token for a free dev account I created. Uncomment the line below for tests to pass
-  // settings = settings || {workspaceToken:'iGnVkEeL5ge_JP1ZoMxgjSxNNWgQQqHskAIZnydjWTM.TrYonOtUNM7jKToWLAAo9pJ5vDx2UGFrnAyIjbdD2iU', workspaceSlug:'james-reynolds'}
-  
   if (!settings.workspaceToken) {
     throw new ValidationError("Workspace Authorization Token is Required. Make sure you have created a 'workspaceToken' setting.");
   }
