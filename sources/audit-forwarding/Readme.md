@@ -216,7 +216,7 @@ Audit events do not function the same as 'regular' events. Thus you cannot forwa
 #### Event Name Regex Pattern
 
 ```
-^Integrations
+^Integration
 ```
 
 #### Event Template
