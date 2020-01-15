@@ -47,9 +47,6 @@ async function onTrack(event, settings) {
     annotations
   };
 
-  //TODO: Remove me
-  console.log(body);
-
   //TODO: Is there a reason to create URL object and then stringify again?
   const res = await fetch(url.toString(), {
     body: JSON.stringify(body),
@@ -61,10 +58,19 @@ async function onTrack(event, settings) {
     method: "post",
   })
 
-  //TODO: how to report errors?
-  //Note 1: API returns 200 even when validation errors occur
-  //Note 2: API is returning JSON but setting the response type to plain/text
-  return await res.text() // or res.json() for JSON APIs
+  //TODO: there are probably other error types
+  //Note 1: API sometimes returns 200 even when errors occur
+  let response = await res.json();
+  let { message, code, error, status={} } = response;
+
+  if(status.hasOwnProperty("code") && status.code === 200 && status.hasOwnProperty("result") && status.result === "OK")
+    return response;
+  else if(code === 400 && !!message)
+    throw new ValidationError(message);
+  else if((status.hasOwnProperty("result") && status.result === "ERROR") || !!error)
+    throw new InvalidEventPayload(message);
+  else
+    throw new EventNotSupported("Not sure what is going on");
 }
 
 /**
