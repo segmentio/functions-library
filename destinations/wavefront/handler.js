@@ -19,7 +19,7 @@ const url = new URL(endpoint);
 const annotationProperties = [
     { key: "type", validateFunc: (input) => { return _.isString(input)} },
     { key: "details", validateFunc: (input) => { return _.isString(input)} },
-    { key: "severity", validateFunc: (input) => { return _.isString(input) && _.indexOf(["Info", "Warn", "Severe"], input) > -1 } }];
+    { key: "severity", validateFunc: (input) => { return _.isString(input) && _.indexOf(["info", "warn", "severe"], input) > -1 } }];
 
 /**
  * @param {SpecTrack} event The track event
