@@ -27,7 +27,13 @@ describe.each(sources)("%s", (source) => {
 
     tester.each(payloads)("%s handler", async (example, payload) => {
         process.chdir(dir)
-        const messages = await processSourcePayload(payload)
-        expect(messages.events.length + messages.objects.length).toBeGreaterThanOrEqual(0)
+        try {
+            const messages = await processSourcePayload(payload)
+            expect(messages.events.length + messages.objects.length).toBeGreaterThanOrEqual(0)
+        } catch(err) {
+            if (!(err instanceof EventNotSupported || err instanceof ValidationError || err instanceof InvalidEventPayload)) {
+                fail(err)
+            }
+        }
     })
 })
