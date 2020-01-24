@@ -98,7 +98,7 @@ exports.processSourcePayload = async payload => {
     }
 
     const request = new ServerRequest(body, { headers, url });
-    let settings = payload.hasOwnProperty("settings") ? payload.settings : {};
+    let settings = payload.settings || {};
     await fn(request, settings);
 
     // collect and reset implicit messages
