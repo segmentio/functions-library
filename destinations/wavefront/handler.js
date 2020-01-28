@@ -9,8 +9,7 @@ let wavefrontApiVersion = "v2";
 let wavefrontResource = "event";
 
 //Create endpoint
-const endpoint = `https://${wavefrontInstance}.wavefront.com/api/${wavefrontApiVersion}/${wavefrontResource}`;
-const url = new URL(endpoint);
+const url = new URL(`https://${wavefrontInstance}.wavefront.com/api/${wavefrontApiVersion}/${wavefrontResource}`);
 
 //Properties we need in the track event
 //Note 1: we only cover instantaneous events for now as ending events later is only possible via wavefront UI manually
@@ -47,8 +46,7 @@ async function onTrack(event, settings) {
     annotations
   };
 
-  //TODO: Is there a reason to create URL object and then stringify again?
-  const res = await fetch(url.toString(), {
+  const res = await fetch(url, {
     body: JSON.stringify(body),
     headers: new Headers({
       "Authorization": `Bearer ${settings.apiKey}`,
