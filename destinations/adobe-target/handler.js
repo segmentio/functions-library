@@ -38,6 +38,9 @@ let profileApiAuthHeaders = new Headers({
   })
 
 async function onIdentify(event, settings) {
+  //Check mandatory config
+  if(!checkMandatoryConfig())
+    throw new ValidationError("Adobe and Profile API mandatory credentials were not set")
   
   // first, grab adobe target mbox PCID. if it doesn't exist, this user cannot be updated in adobe target.
   // replace userId to fetch from Personas
@@ -65,4 +68,8 @@ async function onIdentify(event, settings) {
     method: "GET"
   })
   return await targetProfileUpdateUrl.text
+}
+
+function checkMandatoryConfig() {
+  return !!adobeClientCode && !!adobeIdTraitName && !!profileSpaceID && !!profileApiToken;
 }

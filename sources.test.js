@@ -1,6 +1,7 @@
 var fs = require('fs')
 const process = require('process')
 const { processSourcePayload } = require('./buildpack/boreal')
+const { EventNotSupported, InvalidEventPayload, ValidationError } = require('./buildpack/boreal/window')
 
 const sources = fs.readdirSync(`${__dirname}/sources`)
 const skips = ["leanplum"]
@@ -27,7 +28,13 @@ describe.each(sources)("%s", (source) => {
 
     tester.each(payloads)("%s handler", async (example, payload) => {
         process.chdir(dir)
-        const messages = await processSourcePayload(payload)
-        expect(messages.events.length + messages.objects.length).toBeGreaterThanOrEqual(0)
+        try {
+            const messages = await processSourcePayload(payload)
+            expect(messages.events.length + messages.objects.length).toBeGreaterThanOrEqual(0)
+        } catch(err) {
+            if (!(err instanceof EventNotSupported || err instanceof ValidationError || err instanceof InvalidEventPayload)) {
+                fail(err)
+            }
+        }
     })
 })

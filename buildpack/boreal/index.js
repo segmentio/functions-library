@@ -98,7 +98,8 @@ exports.processSourcePayload = async payload => {
     }
 
     const request = new ServerRequest(body, { headers, url });
-    await fn(request, payload.settings);
+    let settings = payload.settings || {};
+    await fn(request, settings);
 
     // collect and reset implicit messages
     const { events, objects } = Segment
