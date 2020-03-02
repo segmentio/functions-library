@@ -3,11 +3,13 @@ This example shows how to set up a custom destination function with [Sift](https
 
 ## Setup
 - [ ]  Create a [HTTP Source](https://segment.com/docs/connections/sources/catalog/libraries/server/http-api/#http%20tracking%20api)
-- [ ]  Generate a REST API Key from Sift
+- [ ]  Grab the REST API Key from Sift in your account
 
 ## How to use
 
 Copy the `handler.js` code in this directory to your destination function
+
+Make the necessary modifications in the `handler.js` to map your Segment data.
 
 Replace the first line with your Segment write key that you generated from creating an HTTP Source
 

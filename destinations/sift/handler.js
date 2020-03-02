@@ -1,39 +1,80 @@
 // Segment & Sift 
 const SEGMENT_WRITE_KEY = ""
-const endpoint = "https://api.sift.com/v205/events?return_score=true"
+const endpoint = "https://api.sift.com/v205/events"
+const endpointScore = endpoint + "?return_score=true"
+const endpointWorkflow = endpoint + "?return_workflow_status=true"
 
 async function addScores(fields, res) {
-	var body = {
+	if (res.status == 0) {
+		var scoreBody = {
+			"userId": fields.$user_id,
+			"traits": {
+				"contentAbuseScore": res.score_response.scores.content_abuse.score,
+				"paymentAbuseScore": res.score_response.scores.payment_abuse.score
+			}
+		}
+
+		const request = await fetch("https://api.segment.io/v1/identify", {
+			body: JSON.stringify(scoreBody),
+			headers: new Headers({
+				"Authorization": "Basic " + btoa(SEGMENT_WRITE_KEY + ":"),
+				"Content-Type": "application/json"
+			}),
+			method: "post"
+		})
+
+		return request.json()
+	} 
+}
+
+async function addDecisions(fields, res) {
+	var decisionBody = {
 		"userId": fields.$user_id,
 		"traits": {
-			"contentAbuseScore": res.score_response.scores.content_abuse.score,
-			"paymentAbuseScore": res.score_response.scores.payment_abuse.score
+			"contentAbuseDecisions": res.score_response.workflow_statuses[0].history[0].config.decision_id,
+			"paymentAbuseDecisions": res.score_response.workflow_statuses[0].history[0].config.decision_id
 		}
 	}
-	const apiCall = await fetch("https://api.segment.io/v1/identify", {
-		body: JSON.stringify(body),
+
+	const request = await fetch("https://api.segment.io/v1/identify", {
+		body: JSON.stringify(decisionBody),
 		headers: new Headers({
 			"Authorization": "Basic " + btoa(SEGMENT_WRITE_KEY + ":"),
 			"Content-Type": "application/json"
 		}),
 		method: "post"
 	})
-	return apiCall.json()
+
+	return request.json()
 }
 
-async function fetchMe(fields) {
+async function siftEventCall(endpoint, fields) {
 	const res = await fetch(endpoint, {
 		body: JSON.stringify(fields),
 		headers: { "Content-Type": "application/json" },
 		method: "post"
 	})
-	const response = await res.json();
-	const scoreResponse = await addScores(fields, response);
-	return scoreResponse;
+
+	const siftResponse = await res.json();
+	
+	if (siftResponse.status <= 0) {
+		// Please implement conditions for retries. 
+	} else if (siftResponse.status >= 0) {
+		throw new InvalidEventPayload(siftResponse.error_message);
+	}
+	
+	if (endpoint == endpointScore) {
+		const response = await addScore(fields, siftResponse);
+	} else if (endpoint == endpointWorkflow) {
+		const response = await addDecisions(fields, siftResponse);
+	}
+	
+	return response;
 }
 
 async function onTrack(event, settings) {
 	var fields = {};
+
 	if (event.event == "Signed Up") {
 		fields = {
 			"$type": "$create_account",
@@ -47,7 +88,8 @@ async function onTrack(event, settings) {
 			},
 			"$api_key": settings.apiKey
 		}
-		return fetchMe(fields)
+
+		return siftEventCall(fields)
 	} else if (event.event == "Signed In") {
 		fields = {
 			"$type": "$login",
@@ -60,9 +102,10 @@ async function onTrack(event, settings) {
 			},
 			"$api_key": settings.apiKey
 		}
-		return fetchMe(fields)
+
+		return siftEventCall(fields)
 	} else {
-		return
+		return null
 	}
 }
 
@@ -82,5 +125,6 @@ async function onIdentify(event, settings) {
 		},
 		"$api_key": settings.apiKey
 	}
-	return fetchMe(fields)
+	
+	return siftEventCall(fields)
 }
