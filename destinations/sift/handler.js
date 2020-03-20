@@ -3,8 +3,8 @@ const SEGMENT_WRITE_KEY = ""
 const endpoint = "https://api.sift.com/v205/events"
 const endpointScore = endpoint + "?return_score=true"
 const endpointWorkflow = endpoint + "?return_workflow_status=true"
+
 async function addScores(fields, res) {
-    console.log("scores", res);
 	if (res.status == 0) {
 		var scoreBody = {
 			"userId": fields.$user_id,
@@ -13,6 +13,7 @@ async function addScores(fields, res) {
 				"paymentAbuseScore": res.score_response.scores.payment_abuse.score
 			}
 		}
+
 		const request = await fetch("https://api.segment.io/v1/identify", {
 			body: JSON.stringify(scoreBody),
 			headers: new Headers({
@@ -21,11 +22,12 @@ async function addScores(fields, res) {
 			}),
 			method: "post"
 		})
+
 		return request.json()
 	} 
 }
+
 async function addDecisions(fields, res) {
-  console.log("decisions", res);
 	var decisionBody = {
 		"userId": fields.$user_id,
 		"traits": {
@@ -33,6 +35,7 @@ async function addDecisions(fields, res) {
 			"paymentAbuseDecisions": res.score_response.workflow_statuses[0].history[0].config.decision_id
 		}
 	}
+
 	const request = await fetch("https://api.segment.io/v1/identify", {
 		body: JSON.stringify(decisionBody),
 		headers: new Headers({
@@ -41,31 +44,37 @@ async function addDecisions(fields, res) {
 		}),
 		method: "post"
 	})
+
 	return request.json()
 }
+
 async function siftEventCall(fields,endpoint) {
 	const res = await fetch(endpoint, {
 		body: JSON.stringify(fields),
 		headers: { "Content-Type": "application/json" },
 		method: "post"
 	})
+
 	const siftResponse = await res.json();
+	
 	if (siftResponse.status <= 0) {
 		// Please implement conditions for retries. 
 	} else if (siftResponse.status >= 0) {
 		throw new InvalidEventPayload(siftResponse.error_message);
 	}
-  var response;
+	
 	if (endpoint == endpointScore) {
-		response = await addScores(fields, siftResponse);
+		const response = await addScore(fields, siftResponse);
 	} else if (endpoint == endpointWorkflow) {
-		response = await addDecisions(fields, siftResponse);
+		const response = await addDecisions(fields, siftResponse);
 	}
+	
 	return response;
 }
+
 async function onTrack(event, settings) {
 	var fields = {};
-	// Depending on when you want to call for a score, set the appropriate endpoint to hit. 
+	// Depending on when you want to call for a score, set the appropriate endpoint to hit.
 	if (event.event == "Signed Up") {
 		fields = {
 			"$type": "$create_account",
@@ -79,6 +88,7 @@ async function onTrack(event, settings) {
 			},
 			"$api_key": settings.apiKey
 		}
+
 		return siftEventCall(fields,endpoint)
 	} else if (event.event == "Signed In") {
 		fields = {
@@ -92,14 +102,18 @@ async function onTrack(event, settings) {
 			},
 			"$api_key": settings.apiKey
 		}
+
 		return siftEventCall(fields,endpoint)
 	} else {
 		return null
 	}
 }
+
 async function onIdentify(event, settings) {
 	// Depending on when you want to call for a score, set the appropriate endpoint to hit. 
+
 	if (!event.userId) return;
+
 	var fields = {
 		"$type": "$update_account",
 		"$user_id": event.userId,
@@ -112,5 +126,6 @@ async function onIdentify(event, settings) {
 		},
 		"$api_key": settings.apiKey
 	}
+	
 	return siftEventCall(fields,endpoint)
 }
