@@ -1,5 +1,5 @@
 ## Twilio Destination
-This function sends text messages on identify calls. 
+This function sends text messages via Twilio on identify calls. 
 
 ## Notes
 * The event must contain `traits.phone`. 
