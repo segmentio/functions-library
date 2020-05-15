@@ -1,0 +1,20 @@
+{
+  "payload": {
+    "body": {
+       "customerId":"056db42949895bb3a0d6887bcb52e901",
+       "transactionType":"Cancellation",
+       "transactionId":"1b371b88cb3248c09efbaafa001aeeb1",
+       "channelId":"53343",
+       "productCode":"partnerGameSubscription",
+       "productName":"partnerGameSubscription",
+       "isFreeTrial":false,
+       "expirationDate":"2019-11-03T01:38:02.871973",
+       "originalTransactionId":"40f25b24-9328-4c63-b232-aafa001aeb4f",
+       "originalPurchaseDate":"2019-11-03T01:38:00",
+       "partnerReferenceId":"1x8g2f2x6f",
+       "comments":"Cancellation for partnerGameSubscription",
+       "eventDate":"2019-11-03T01:38:03.5333675Z",
+       "responseKey":"d731accf25154140a8e528cb077e67fd"
+     }
+   }
+}   

@@ -1,0 +1,23 @@
+{
+  "payload": {
+    "body": {
+       "customerId":"6ec03d85f95d572092527f4f03b48f4c",
+       "transactionType":"Refund",
+       "transactionId":"35430ff19a0a4d779075aaf9017452ec",
+       "channelId":"34984",
+       "productCode":"partnerVideoRental",
+       "productName":"partnerVideoRental",
+       "price":-3.24,
+       "tax":-0.75,
+       "total":-3.99,
+       "currency":"eur",
+       "isFreeTrial":false,
+       "originalTransactionId":"390139a0-355d-40ab-96e5-aaf90174060e",
+       "originalPurchaseDate":"2019-11-02T22:34:29",
+       "partnerReferenceId":"6s2m2z6l3k",
+       "comments":"Refund for partnerVideoRental",
+       "eventDate":"2019-11-02T22:35:35.7083998Z",
+       "responseKey":"da47eb9e5a45438d81e88b0c2c284d4a"
+    }
+  }
+}
