@@ -1,0 +1,14 @@
+{
+  "payload": {
+    "body": {
+      "subscriber": {
+        "id": 847714545,
+        "first_name": "Dan",
+        "email_address": "dan.lee@segment.com",
+        "state": "cancelled",
+        "created_at": "2020-05-15T21:30:36.000Z",
+        "fields": {}
+      }
+    }
+  }
+}
