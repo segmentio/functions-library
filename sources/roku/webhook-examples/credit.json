@@ -1,0 +1,19 @@
+{
+  "payload": {
+    "body": {
+       "customerId":"1c8610c7dc415555952e9f8b51f090df",
+       "transactionType":"Credit",
+       "transactionId":"43384",
+       "channelId":"35057",
+       "channelName":"Partner VideoMonthlySubChannel",
+       "price":41.0,
+       "total":41.0,
+       "currency":"usd",
+       "isFreeTrial":false,
+       "partnerReferenceId":"",
+       "comments":"simple string",
+       "eventDate":"2019-11-04T12:13:39.0713998Z",
+       "responseKey":"0a9ac970ffdb4bb7a4f0f6397a73d47c"
+    }
+  }
+}

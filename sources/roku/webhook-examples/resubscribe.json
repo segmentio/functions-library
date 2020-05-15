@@ -1,0 +1,22 @@
+{
+  "payload": {
+    "body": {
+       "customerId":"ce998da2e82454e293ce2cf81857ff05",
+       "transactionType":"Resubscribe",
+       "transactionId":"db1f33f5bfb44e58a779aafa008d6e64",
+       "channelId":"26591",
+       "productCode":"testProdSub",
+       "productName":"testProdSub",
+       "price":0.00,
+       "tax":0.00,
+       "total":0.00,
+       "currency":"usd",
+       "isFreeTrial":false,
+       "originalTransactionId":"98290125-03ac-48f9-bcc1-aafa008d6475",
+       "originalPurchaseDate":"2019-11-03T08:34:47",
+       "comments":"Resubscription processed.",
+       "eventDate":"2019-11-03T08:34:56.3383998Z",
+       "responseKey":"0ffd378ab4f344d58963b4686dd08293"
+   }
+ }
+}
