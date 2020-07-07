@@ -32,8 +32,8 @@ async function onTrack(event, settings) {
  * @return any
  */
 async function onIdentify(event, settings) {
-  const blacklist = ['ssn', 'first_name', 'last_name', 'name', 'email'];
-  blacklist.forEach(i => delete event[i]);
+  const PII = ['ssn', 'first_name', 'last_name', 'name', 'email'];
+  PII.forEach(i => delete event[i]);
 
   const resp = await fetch('https://reqres.in/api/users/2');
   const user = await resp.json();

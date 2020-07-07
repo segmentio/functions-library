@@ -2,7 +2,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 async function onTrack(event, settings) {
   let evt = event.event
-  if(!whitelist(evt, settings)) return
+  if(!eventAllowed(evt, settings)) return
 
   let userId = event.userId
   if(!userId) return
@@ -26,7 +26,7 @@ async function onTrack(event, settings) {
 }
 
 // returns whether an event is whitelisted in the settings
-function whitelist(event, settings) {
+function eventAllowed(event, settings) {
   if(!settings.events) return false
   let arr = settings.events.split(",")
   if(arr.indexOf(event) > -1) return true
