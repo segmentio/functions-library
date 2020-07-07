@@ -25,7 +25,7 @@ async function onTrack(event, settings) {
   return res.text()
 }
 
-// returns whether an event is whitelisted in the settings
+// returns whether an event is allowed in the settings
 function eventAllowed(event, settings) {
   if(!settings.events) return false
   let arr = settings.events.split(",")
