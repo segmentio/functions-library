@@ -10,7 +10,13 @@ describe.each(sources)("%s", (source) => {
     let dir = `${__dirname}/sources/${source}`
     let payloads = []
 
-    const examples = fs.readdirSync(`${dir}/webhook-examples`)
+    let examples
+    try {
+     examples = fs.readdirSync(`${dir}/webhook-examples`)}
+    catch(e) {
+        console.log(`no tests for ${source}, skipping`)
+        return
+    }
     for (var i = 0; i < examples.length; i++) {
         const example = examples[i]
         const payload = JSON.parse(fs.readFileSync(`${dir}/webhook-examples/${example}`, 'utf8'))

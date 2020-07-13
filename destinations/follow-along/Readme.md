@@ -1,7 +1,7 @@
 # Follow Along
 
 This function automatically posts to Slack whenever a user completes one of the
-whitelisted actions. The message payload will contain a link to Fullstory so
+allowed actions. The message payload will contain a link to Fullstory so
 that you can understand what just led the user to this point
 
 ## Settings
