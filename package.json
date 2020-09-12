@@ -23,7 +23,7 @@
     "btoa": "1.2.1",
     "form-data": "2.4.0",
     "lodash": "4.17.15",
-    "node-fetch": "2.6.0",
+    "node-fetch": "2.6.1",
     "oauth": "0.9.15",
     "xml": "1.0.1"
   },
