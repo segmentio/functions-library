@@ -44,7 +44,18 @@ async function onIdentify(event, settings) {
   
   // first, grab adobe target mbox PCID. if it doesn't exist, this user cannot be updated in adobe target.
   // replace userId to fetch from Personas
-  profileUrl = profileUrl.replace("UID-PLACEHOLDER",event.userId)
+  if ('userId' in event && event['userId'] != null) {
+		profileUrl = profileUrl.replace(
+			'UID-PLACEHOLDER',
+			'user_id:' + event.userId
+		);
+	} else if ('anonymousId' in event) {
+		profileUrl = profileUrl.replace(
+			'UID-PLACEHOLDER',
+			'anonymous_id:' + event.anonymousId
+		);
+	}
+  
   const fetchIdFromPersonas = await fetch(profileUrl, {
     method: "GET",
     headers: profileApiAuthHeaders
