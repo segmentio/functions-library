@@ -26,16 +26,16 @@ this repo as the set of examples.
 - [Talkable](./sources/talkable) - Subscribes to Talkable webhooks
 - [Typeform](./sources/typeform) - Subscribes to Typeform webhooks
 
-
 ## Destinations
 
 - [Airtable](./destinations/airtable) - Capture user feedback and send through to your Airtable
+- [Datadog](./destinations/datadog) - Sends a metric to datadog with high level message/event type as tags
 - [Follow Along](./destinations/follow-along) - Generates Fullstory links and sends to Slack
+- [New Relic](./destinations/new-alongrelic) - Sends events to New Relic Event API
+- [Optimizely](./destinations/optimizely) - Sends conversion metrix to Optimizely
 - [Requestbin](./destinations/requestbin) - Sends events to RequestBin for introspection
 - [Slack](./destinations/slack) - Adds a Gravatar icon to events with an email and sends messages to Slack
 - [Zendesk](./destinations/zendesk) - Create new Zendesk tickets triggered by events that you send
-- [Datadog](./destinations/datadog) - Sends a metric to datadog with high level message/event type as tags
-- [Optimizely](./destinations/optimizely) - Sends conversion metrix to optimizely.
 
 ## Development
 
