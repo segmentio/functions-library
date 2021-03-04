@@ -1,5 +1,5 @@
 <img src="https://sendgrid.com/brand/sg-twilio/SG_Twilio_Lockup_RGBx1.png" />
-
+<br/>
 This is a source function template that subscribes to Sendgrid via <a href="https://sendgrid.com/docs/for-developers/tracking-events/getting-started-event-webhook/">Sendgrid Webhooks.</a> 
 
 To configure, create event webhooks within your Sendgrid instance and point them to the source URL found your Segment source function. 
