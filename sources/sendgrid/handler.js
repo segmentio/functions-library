@@ -146,8 +146,10 @@ async function onRequest(request, settings) {
 		// Send phase: "send" or "test". Applies only to single sends. "test" for AB testing test phase
 		let sg_single_send_phase =
 			single_event.phase_id === undefined ? undefined : single_event.phase_id;
-		// User's anonymousId: base-64 encoded email. This creates an anonymousId that will be consistent with subsequent webhook events from same user (reducing MTU implications)
-		let anonymousId = btoa(single_event.email);
+		// create anonymousId that will be consistent with subsequent webhook events from same user
+		const hash = crypto.createHash('md5');
+		hash.update(single_event.email);
+		const anonymousId = hash.digest('hex');
 		// Include email in the context object, so track() events are merged in Personas into user profile without an Identify() call
 		let contextTraits = { email: email };
 		// Set up event properties. Undefined fields are not included in the result properties{}
