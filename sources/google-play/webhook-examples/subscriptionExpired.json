@@ -1,0 +1,14 @@
+"payload": {
+  "body": {
+    {
+      "message": {
+        "attributes": {
+          "key": "value"
+        },
+        "data": "eyAidmVyc2lvbiI6ICIxLjIuMyIsICJwYWNrYWdlTmFtZSI6ICJDaGFybGllIiwgImV2ZW50VGltZU1pbGxpcyI6IDE1ODk1NzQxMjguMTIzLCAic3Vic2NyaXB0aW9uTm90aWZpY2F0aW9uIjogeyJ2ZXJzaW9uIjogIjcuOC45IiwgIm5vdGlmaWNhdGlvblR5cGUiOiAxMywgInB1cmNoYXNlVG9rZW4iOiAidXNlcjEyMyIsICJzdWJzY3JpcHRpb25JZCI6ICJzdWIxMjMifX0=",
+        "messageId": "136969346945"
+      },
+      "subscription": "projects/myproject/subscriptions/mysubscription"
+    }
+  }
+}
