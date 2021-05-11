@@ -1,0 +1,15 @@
+{
+  "payload": {
+    "headers": {},
+    "queryParams": {},
+    "body": {
+      "attributes": {
+        "openCount": 12,
+        "updatedAt": "2019-06-28T07:45:42.000Z"
+      },
+      "id": 957993,
+      "relationships": {},
+      "type": "mailing"
+    }
+  }
+}
