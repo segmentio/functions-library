@@ -1,0 +1,12 @@
+{
+  "payload": {
+    "body": {
+      "subscriber": {
+        "id": "1234",
+        "email_address": "test@test.com",
+        "state": "active",
+        "first_name": "Ben Wyatt"
+      }
+    }
+  }
+}
