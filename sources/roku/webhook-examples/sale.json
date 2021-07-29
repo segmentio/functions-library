@@ -1,0 +1,24 @@
+{
+  "payload": {
+    "body": {
+      "customerId":"4e5812f5b00b4f5b90f768d22a7de170",
+      "transactionType":"Sale",
+      "transactionId":"d9dbdfecc5cc41cbb881ab750135029b",
+      "channelId":"176276",
+      "channelName":"The Roku Channel",
+      "productCode":"yN4JEfTmjhRP3IpbuWiJ_MonthlySub",
+      "productName":"Showtime",
+      "price":1.99,
+      "tax":0.0,
+      "total":1.99,
+      "currency":"usd",
+      "isFreeTrial":false,
+      "expirationDate":"2020-04-05T18:45:04.3142198Z",
+      "originalTransactionId":"d9dbdfec-c5cc-41cb-b881-ab750135029b",
+      "comments":"New order processed.",
+      "eventDate":"2020-03-05T18:45:04.8762198Z",
+      "responseKey":"d4dd12df0c8445afa8860895061e72f9",
+      "creditsApplied":1.99
+    }
+  }
+}
