@@ -1,0 +1,37 @@
+{
+  "payload": {
+      "body": {
+        "latest_receipt": "ewoXXXXX",
+        "latest_receipt_info": {
+            "original_purchase_date_pst": "2019-07-29 21:13:18 America/Los_Angeles",
+            "quantity": "1",
+            "unique_vendor_identifier": "XXX",
+            "original_purchase_date_ms": "1564459998000",
+            "expires_date_formatted": "2019-08-06 04:13:17 Etc/GMT",
+            "is_in_intro_offer_period": "false",
+            "purchase_date_ms": "1564459997000",
+            "expires_date_formatted_pst": "2019-08-05 21:13:17 America/Los_Angeles",
+            "is_trial_period": "true",
+            "item_id": "1452171111",
+            "unique_identifier": "00000",
+            "original_transaction_id": "0000000",
+            "expires_date": "00000000",
+            "app_item_id": "0000000",
+            "transaction_id": "00000000",
+            "bvrs": "00000",
+            "web_order_line_item_id": "00000000",
+            "version_external_identifier": "000000",
+            "bid": "com.XXX",
+            "product_id": "XXXXX",
+            "purchase_date": "2019-07-30 04:13:17 Etc/GMT",
+            "purchase_date_pst": "2019-07-29 21:13:17 America/Los_Angeles",
+            "original_purchase_date": "2019-07-30 04:13:18 Etc/GMT"
+        },
+        "environment": "PROD",
+        "auto_renew_status": "true",
+        "password": "*****",
+        "auto_renew_product_id": "com.XXXX",
+        "notification_type": "INITIAL_BUY"
+    }
+  }
+}
