@@ -23,9 +23,10 @@ async function onRequest(request, settings) {
 
 	//variables for user info for identify call
 	var contactInfo = data.contact;
-	var user_id = contactInfo.id;
+	var anonymous_id = contactInfo.id;
 	var contact_name = contactInfo.lastName;
 	var contact_phone = contactInfo.phone;
+	var contact_email = contactInfo.email;
 
 	//variables for company info for group call
 	var account = contactInfo.account;
@@ -35,7 +36,8 @@ async function onRequest(request, settings) {
 	// See https://segment.com/docs/connections/spec/track/
 	Segment.track({
 		event: 'Ticket Created',
-		userId: user_id,
+		anonymousId: anonymous_id,
+		email: contactInfo.email,
 		properties: {
 			status: ticket_status,
 			ticketId: ticket_id,
@@ -47,15 +49,17 @@ async function onRequest(request, settings) {
 	});
 
 	Segment.identify({
-		userId: user_id,
+		anonymousId: anonymous_id,
+		email: contact_email,
 		traits: {
 			name: contact_name,
-			phone: contact_phone
+			phone: contact_phone,
+			email: contactInfo.email
 		}
 	});
 
 	Segment.group({
-		userId: user_id,
+		anonymousId: anonymous_id,
 		groupId: account_id,
 		traits: {
 			company: account_name
