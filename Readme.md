@@ -36,6 +36,7 @@ this repo as the set of examples.
 - [Zendesk](./destinations/zendesk) - Create new Zendesk tickets triggered by events that you send
 - [Datadog](./destinations/datadog) - Sends a metric to datadog with high level message/event type as tags
 - [Optimizely](./destinations/optimizely) - Sends conversion metrix to optimizely.
+- [Radar](./destinations/radar) - Send events to Radar for enrichment with location context
 
 ## Development
 
