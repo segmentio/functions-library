@@ -24,7 +24,7 @@
     "form-data": "2.4.0",
     "lodash": "4.17.15",
     "node-fetch": "2.6.0",
-    "oauth": "0.9.15",
+    "oauth": "0.10.0",
     "xml": "1.0.1"
   },
   "devDependencies": {
