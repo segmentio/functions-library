@@ -20,3 +20,5 @@ jobs:
       - name: Run Vitally source function
         run: |
           node ./source/vitally/handler.js
+        env:
+            SEGMENT_WRITE_KEY: ${{ secrets.SEGMENT_WRITE_KEY_VITALLY_NPS_RESPONSES }}
