@@ -1,0 +1,22 @@
+name: Vitally NPS Response Received
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  vitally:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install Dependencies
+        run: npm install @segment/actions-toolkit
+      - name: Run Vitally source function
+        run: |
+          node ./source/vitally/handler.js

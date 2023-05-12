@@ -1,0 +1,17 @@
+{
+    "payload": {
+        "body": {
+                "playbookId": "11c50ff4-724a-4f95-8a03-e3c17058aa13",
+                "playbookExternalId": "NPS Responses to Segment",
+                "matchedAt": "2023-05-12T03:00:24.324Z",
+                "matchId": "UNIQUE_ID_GENERATED_BY_VITALLY",
+                "match": {
+                    "user": {
+                        "id": "UNIQUE_ID_GENERATED_BY_VITALLY",
+                        "externalId": "YOUR_UNIQUE_ID",
+                        "last_nps_score": 0
+                    }
+                }
+        }
+    }
+}
