@@ -1,5 +1,8 @@
 # Segment Functions Library
 
+> [!NOTE]
+> Segment has paused maintenance on this project, but may return it to an active status in the future. Issues and pull requests from external contributors are not being considered, although internal contributions may appear from time to time. The project remains available under its open source license for anyone to use.
+
 This repository contains a set of community-generated functions, to serve
 as examples to base your own functions upon. If you're building out a new
 integration, or a custom piece of code that you want Segment to run, use
