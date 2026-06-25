@@ -4,10 +4,10 @@ on: [push]
 jobs:
   build:
     name: yarn test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-large
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@61b9e3751b92087fd0b06925ba6dd6314e06f089  # master
+      - uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e  # v1
         with:
           node-version: '8.x'
       - run: yarn
